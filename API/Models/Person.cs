@@ -17,7 +17,5 @@ namespace API.Models
 
         [Required]
         public int Age { get; set; }
-
-        // Komentaras
     }
 }
