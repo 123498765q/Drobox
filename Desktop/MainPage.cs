@@ -21,7 +21,6 @@ namespace Desktop
 
         Point lastClick; //Holds where the Form was clicked
 
-        
 
         private void panel2_MouseDown(object sender, MouseEventArgs e)
         {
@@ -47,5 +46,87 @@ namespace Desktop
         {
             Application.Exit();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Maximized;
+        }
+
+        private void userButton_Click(object sender, EventArgs e)
+        {
+            navigationLabel.Text = "User";
+            CheckState();
+        }
+
+        private void homeButton_Click(object sender, EventArgs e)
+        {
+            navigationLabel.Text = "Home";
+            CheckState();
+        }
+
+        private void addButton_Click(object sender, EventArgs e)
+        {
+            navigationLabel.Text = "Add";
+            CheckState();
+        }
+
+        private void shareButton_Click(object sender, EventArgs e)
+        {
+            navigationLabel.Text = "Share";
+            CheckState();
+        }
+
+        private void optionsButton_Click(object sender, EventArgs e)
+        {
+            navigationLabel.Text = "Settings";
+            CheckState();
+        }
+
+        private void CheckState()
+        {
+            if (navigationLabel.Text == "User")
+            {
+                userButton.BackColor = (Color.FromArgb(255, 195, 106, 55));
+            }
+            else
+            {
+                userButton.BackColor = Color.Transparent;
+            }
+            if (navigationLabel.Text == "Home")
+            {
+                homeButton.BackColor = (Color.FromArgb(255, 195, 106, 55));
+            }
+            else
+            {
+                homeButton.BackColor = Color.Transparent;
+            }
+            if (navigationLabel.Text == "Add")
+            {
+                addButton.BackColor = (Color.FromArgb(255, 195, 106, 55));
+            }
+            else
+            {
+                addButton.BackColor = Color.Transparent;
+            }
+            if (navigationLabel.Text == "Share")
+            {
+                shareButton.BackColor = (Color.FromArgb(255, 195, 106, 55));
+            }
+            else
+            {
+                shareButton.BackColor = Color.Transparent;
+            }
+            if (navigationLabel.Text == "Settings")
+            {
+                optionsButton.BackColor = (Color.FromArgb(255, 195, 106, 55));
+            }
+            else
+            {
+                optionsButton.BackColor = Color.Transparent;
+            }
+
+
+        }
+
     }
 }

@@ -157,5 +157,10 @@
   <ItemGroup>
     <None Include="Resources\exitbutton.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\us.png" />
+    <Content Include="Resources\usecclicked.png" />
+    <None Include="Resources\usecclicked1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
