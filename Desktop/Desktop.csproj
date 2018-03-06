@@ -59,6 +59,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RedesignedMainPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RedesignedMainPage.Designer.cs">
+      <DependentUpon>RedesignedMainPage.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -69,6 +75,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RedesignedMainPage.resx">
+      <DependentUpon>RedesignedMainPage.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -158,7 +167,22 @@
     <None Include="Resources\exitbutton.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\vartotojasjuodas.png" />
+    <None Include="Resources\vartotojas.png" />
     <None Include="Resources\us.png" />
+    <None Include="Resources\lo.png" />
+    <None Include="Resources\logoGood.png" />
+    <None Include="Resources\logotipas.png" />
+    <None Include="Resources\namas.png" />
+    <None Include="Resources\namukas.png" />
+    <None Include="Resources\prideti.png" />
+    <None Include="Resources\dalintis.png" />
+    <None Include="Resources\nustatymai.png" />
+    <None Include="Resources\namuksJuodas.png" />
+    <None Include="Resources\isjungti.png" />
+    <Content Include="Resources\redesignedLogo.png" />
+    <None Include="Resources\redesignedLogo1.png" />
+    <None Include="Resources\sutrauk.png" />
     <Content Include="Resources\usecclicked.png" />
     <None Include="Resources\usecclicked1.png" />
   </ItemGroup>
