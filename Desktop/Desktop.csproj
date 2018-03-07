@@ -45,11 +45,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AddUC.Designer.cs">
+      <DependentUpon>AddUC.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HomeUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="HomeUC.Designer.cs">
+      <DependentUpon>HomeUC.cs</DependentUpon>
     </Compile>
     <Compile Include="MainPage.cs">
       <SubType>Form</SubType>
@@ -65,8 +77,32 @@
     <Compile Include="RedesignedMainPage.Designer.cs">
       <DependentUpon>RedesignedMainPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="SettingsUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SettingsUC.Designer.cs">
+      <DependentUpon>SettingsUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ShareUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ShareUC.Designer.cs">
+      <DependentUpon>ShareUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserUC.Designer.cs">
+      <DependentUpon>UserUC.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AddUC.resx">
+      <DependentUpon>AddUC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HomeUC.resx">
+      <DependentUpon>HomeUC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainPage.resx">
       <DependentUpon>MainPage.cs</DependentUpon>
@@ -78,6 +114,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RedesignedMainPage.resx">
       <DependentUpon>RedesignedMainPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingsUC.resx">
+      <DependentUpon>SettingsUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShareUC.resx">
+      <DependentUpon>ShareUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserUC.resx">
+      <DependentUpon>UserUC.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

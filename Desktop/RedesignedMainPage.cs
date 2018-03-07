@@ -17,6 +17,7 @@ namespace Desktop
             InitializeComponent();
             SidePanel.Height = HomeButton.Height;
             SidePanel.Top = HomeButton.Top;
+            homeUC1.BringToFront();
         }
 
         Point lastClick;
@@ -25,6 +26,7 @@ namespace Desktop
             SidePanel.Height = HomeButton.Height;
             SidePanel.Top = HomeButton.Top;
             NavigationLabel.Text = "Home";
+            homeUC1.BringToFront();
         }
 
         private void UserButton_Click(object sender, EventArgs e)
@@ -32,6 +34,7 @@ namespace Desktop
             SidePanel.Height = UserButton.Height;
             SidePanel.Top = UserButton.Top;
             NavigationLabel.Text = "User";
+            userUC1.BringToFront();
         }
 
         private void AddButton_Click(object sender, EventArgs e)
@@ -39,6 +42,7 @@ namespace Desktop
             SidePanel.Height = AddButton.Height;
             SidePanel.Top = AddButton.Top;
             NavigationLabel.Text = "Add";
+            addUC1.BringToFront();
         }
 
         private void ShareButton_Click(object sender, EventArgs e)
@@ -46,6 +50,7 @@ namespace Desktop
             SidePanel.Height = ShareButton.Height;
             SidePanel.Top = ShareButton.Top;
             NavigationLabel.Text = "Share";
+            shareUC1.BringToFront();
         }
 
         private void SettingsButton_Click(object sender, EventArgs e)
@@ -53,6 +58,7 @@ namespace Desktop
             SidePanel.Height = SettingsButton.Height;
             SidePanel.Top = SettingsButton.Top;
             NavigationLabel.Text = "Settings";
+            settingsUC2.BringToFront();
         }
 
         private void panel2_MouseDown(object sender, MouseEventArgs e)
@@ -78,5 +84,6 @@ namespace Desktop
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
     }
 }

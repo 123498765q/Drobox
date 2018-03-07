@@ -41,9 +41,17 @@
             this.MinimizeButton = new System.Windows.Forms.Button();
             this.ExitButton = new System.Windows.Forms.Button();
             this.NavigationLabel = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.settingsUC2 = new Desktop.SettingsUC();
+            this.settingsUC1 = new Desktop.SettingsUC();
+            this.shareUC1 = new Desktop.ShareUC();
+            this.addUC1 = new Desktop.AddUC();
+            this.userUC1 = new Desktop.UserUC();
+            this.homeUC1 = new Desktop.HomeUC();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -237,11 +245,68 @@
             this.NavigationLabel.TabIndex = 8;
             this.NavigationLabel.Text = "Home";
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.settingsUC2);
+            this.panel3.Controls.Add(this.settingsUC1);
+            this.panel3.Controls.Add(this.shareUC1);
+            this.panel3.Controls.Add(this.addUC1);
+            this.panel3.Controls.Add(this.userUC1);
+            this.panel3.Controls.Add(this.homeUC1);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(128, 27);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(737, 382);
+            this.panel3.TabIndex = 2;
+            // 
+            // settingsUC2
+            // 
+            this.settingsUC2.Location = new System.Drawing.Point(0, 0);
+            this.settingsUC2.Name = "settingsUC2";
+            this.settingsUC2.Size = new System.Drawing.Size(737, 382);
+            this.settingsUC2.TabIndex = 5;
+            // 
+            // settingsUC1
+            // 
+            this.settingsUC1.Location = new System.Drawing.Point(157, -297);
+            this.settingsUC1.Name = "settingsUC1";
+            this.settingsUC1.Size = new System.Drawing.Size(737, 382);
+            this.settingsUC1.TabIndex = 4;
+            // 
+            // shareUC1
+            // 
+            this.shareUC1.Location = new System.Drawing.Point(0, 0);
+            this.shareUC1.Name = "shareUC1";
+            this.shareUC1.Size = new System.Drawing.Size(737, 382);
+            this.shareUC1.TabIndex = 3;
+            // 
+            // addUC1
+            // 
+            this.addUC1.Location = new System.Drawing.Point(0, 0);
+            this.addUC1.Name = "addUC1";
+            this.addUC1.Size = new System.Drawing.Size(737, 382);
+            this.addUC1.TabIndex = 2;
+            // 
+            // userUC1
+            // 
+            this.userUC1.Location = new System.Drawing.Point(0, 0);
+            this.userUC1.Name = "userUC1";
+            this.userUC1.Size = new System.Drawing.Size(737, 382);
+            this.userUC1.TabIndex = 1;
+            // 
+            // homeUC1
+            // 
+            this.homeUC1.Location = new System.Drawing.Point(0, 0);
+            this.homeUC1.Name = "homeUC1";
+            this.homeUC1.Size = new System.Drawing.Size(737, 382);
+            this.homeUC1.TabIndex = 0;
+            // 
             // RedesignedMainPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(865, 409);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -253,6 +318,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -272,5 +338,12 @@
         private System.Windows.Forms.Label NavigationLabel;
         private System.Windows.Forms.Button ExitButton;
         private System.Windows.Forms.Button MinimizeButton;
+        private System.Windows.Forms.Panel panel3;
+        private UserUC userUC1;
+        private HomeUC homeUC1;
+        private AddUC addUC1;
+        private ShareUC shareUC1;
+        private SettingsUC settingsUC1;
+        private SettingsUC settingsUC2;
     }
 }
