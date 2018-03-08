@@ -7,7 +7,8 @@ namespace API.ViewModels
 {
     public class UserViewModel
     {
-        public int PersonId { get; set; }
         public string Name { get; set; }
+        public string Email { get; set; }
+        public string Img { get; set; }
     }
 }

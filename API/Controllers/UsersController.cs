@@ -20,11 +20,11 @@ namespace API.Controllers
 
         // GET: api/Users
         [HttpPost]
-        [Route("api/login")]
+        [Route("GoogleLogin/api/login")]
         public IHttpActionResult Login(UserViewModel user)
         {
 
-            return Ok(user);
+            return Ok();
         }
 
 
