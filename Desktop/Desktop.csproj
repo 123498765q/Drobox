@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CircularProgressBar, Version=2.5.6403.13419, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CircularProgressBar.2.5.6403.13419\lib\net35-client\CircularProgressBar.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -43,14 +46,11 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WinFormAnimation, Version=1.5.6298.3372, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WinFormAnimation.1.5.6298.3372\lib\net35-client\WinFormAnimation.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddUC.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="AddUC.Designer.cs">
-      <DependentUpon>AddUC.cs</DependentUpon>
-    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,9 +95,6 @@
     <Compile Include="UserUC.Designer.cs">
       <DependentUpon>UserUC.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AddUC.resx">
-      <DependentUpon>AddUC.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -124,6 +121,7 @@
     <EmbeddedResource Include="UserUC.resx">
       <DependentUpon>UserUC.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -225,6 +223,7 @@
     <None Include="Resources\nustatymai.png" />
     <None Include="Resources\namuksJuodas.png" />
     <None Include="Resources\isjungti.png" />
+    <None Include="Resources\McDonald%27s_Gwazi_logo.png" />
     <Content Include="Resources\redesignedLogo.png" />
     <None Include="Resources\redesignedLogo1.png" />
     <None Include="Resources\sutrauk.png" />

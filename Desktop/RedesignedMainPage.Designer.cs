@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.valueLabel = new System.Windows.Forms.Label();
+            this.circularProgressBar1 = new CircularProgressBar.CircularProgressBar();
             this.SidePanel = new System.Windows.Forms.Panel();
             this.HeadLabel = new System.Windows.Forms.Label();
             this.SettingsButton = new System.Windows.Forms.Button();
@@ -45,10 +48,10 @@
             this.settingsUC2 = new Desktop.SettingsUC();
             this.settingsUC1 = new Desktop.SettingsUC();
             this.shareUC1 = new Desktop.ShareUC();
-            this.addUC1 = new Desktop.AddUC();
             this.userUC1 = new Desktop.UserUC();
             this.homeUC1 = new Desktop.HomeUC();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -57,6 +60,9 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            this.panel1.Controls.Add(this.pictureBox2);
+            this.panel1.Controls.Add(this.valueLabel);
+            this.panel1.Controls.Add(this.circularProgressBar1);
             this.panel1.Controls.Add(this.SidePanel);
             this.panel1.Controls.Add(this.HeadLabel);
             this.panel1.Controls.Add(this.SettingsButton);
@@ -71,10 +77,63 @@
             this.panel1.Size = new System.Drawing.Size(128, 409);
             this.panel1.TabIndex = 0;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.pictureBox2.BackgroundImage = global::Desktop.Properties.Resources.vartotojas;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox2.Location = new System.Drawing.Point(38, 109);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox2.TabIndex = 6;
+            this.pictureBox2.TabStop = false;
+            // 
+            // valueLabel
+            // 
+            this.valueLabel.AutoSize = true;
+            this.valueLabel.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            this.valueLabel.ForeColor = System.Drawing.SystemColors.Control;
+            this.valueLabel.Location = new System.Drawing.Point(49, 166);
+            this.valueLabel.Name = "valueLabel";
+            this.valueLabel.Size = new System.Drawing.Size(32, 16);
+            this.valueLabel.TabIndex = 6;
+            this.valueLabel.Text = "40%";
+            // 
+            // circularProgressBar1
+            // 
+            this.circularProgressBar1.AnimationFunction = WinFormAnimation.KnownAnimationFunctions.Liner;
+            this.circularProgressBar1.AnimationSpeed = 500;
+            this.circularProgressBar1.BackColor = System.Drawing.Color.Transparent;
+            this.circularProgressBar1.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Bold);
+            this.circularProgressBar1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.circularProgressBar1.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.circularProgressBar1.InnerMargin = 30;
+            this.circularProgressBar1.InnerWidth = 15;
+            this.circularProgressBar1.Location = new System.Drawing.Point(28, 96);
+            this.circularProgressBar1.MarqueeAnimationSpeed = 2000;
+            this.circularProgressBar1.Name = "circularProgressBar1";
+            this.circularProgressBar1.OuterColor = System.Drawing.Color.Gray;
+            this.circularProgressBar1.OuterMargin = -25;
+            this.circularProgressBar1.OuterWidth = 26;
+            this.circularProgressBar1.ProgressColor = System.Drawing.Color.Firebrick;
+            this.circularProgressBar1.ProgressWidth = 30;
+            this.circularProgressBar1.SecondaryFont = new System.Drawing.Font("Microsoft Sans Serif", 36F);
+            this.circularProgressBar1.Size = new System.Drawing.Size(70, 70);
+            this.circularProgressBar1.StartAngle = 270;
+            this.circularProgressBar1.SubscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
+            this.circularProgressBar1.SubscriptMargin = new System.Windows.Forms.Padding(10, -35, 0, 0);
+            this.circularProgressBar1.SubscriptText = ".23";
+            this.circularProgressBar1.SuperscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
+            this.circularProgressBar1.SuperscriptMargin = new System.Windows.Forms.Padding(10, 35, 0, 0);
+            this.circularProgressBar1.SuperscriptText = "°C";
+            this.circularProgressBar1.TabIndex = 6;
+            this.circularProgressBar1.TextMargin = new System.Windows.Forms.Padding(8, 8, 0, 0);
+            this.circularProgressBar1.Value = 40;
+            // 
             // SidePanel
             // 
             this.SidePanel.BackColor = System.Drawing.Color.Firebrick;
-            this.SidePanel.Location = new System.Drawing.Point(0, 135);
+            this.SidePanel.Location = new System.Drawing.Point(0, 182);
             this.SidePanel.Name = "SidePanel";
             this.SidePanel.Size = new System.Drawing.Size(7, 40);
             this.SidePanel.TabIndex = 2;
@@ -85,7 +144,7 @@
             this.HeadLabel.BackColor = System.Drawing.Color.Transparent;
             this.HeadLabel.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
             this.HeadLabel.ForeColor = System.Drawing.Color.Firebrick;
-            this.HeadLabel.Location = new System.Drawing.Point(26, 90);
+            this.HeadLabel.Location = new System.Drawing.Point(26, 70);
             this.HeadLabel.Name = "HeadLabel";
             this.HeadLabel.Size = new System.Drawing.Size(75, 23);
             this.HeadLabel.TabIndex = 3;
@@ -99,7 +158,7 @@
             this.SettingsButton.ForeColor = System.Drawing.Color.White;
             this.SettingsButton.Image = global::Desktop.Properties.Resources.nustatymai;
             this.SettingsButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.SettingsButton.Location = new System.Drawing.Point(6, 319);
+            this.SettingsButton.Location = new System.Drawing.Point(6, 366);
             this.SettingsButton.Name = "SettingsButton";
             this.SettingsButton.Size = new System.Drawing.Size(123, 40);
             this.SettingsButton.TabIndex = 7;
@@ -112,9 +171,9 @@
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Image = global::Desktop.Properties.Resources.logo;
-            this.pictureBox1.Location = new System.Drawing.Point(26, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(31, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(77, 77);
+            this.pictureBox1.Size = new System.Drawing.Size(65, 65);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
@@ -127,7 +186,7 @@
             this.ShareButton.ForeColor = System.Drawing.Color.White;
             this.ShareButton.Image = global::Desktop.Properties.Resources.dalintis;
             this.ShareButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ShareButton.Location = new System.Drawing.Point(6, 273);
+            this.ShareButton.Location = new System.Drawing.Point(6, 320);
             this.ShareButton.Name = "ShareButton";
             this.ShareButton.Size = new System.Drawing.Size(123, 40);
             this.ShareButton.TabIndex = 6;
@@ -144,7 +203,7 @@
             this.AddButton.ForeColor = System.Drawing.Color.White;
             this.AddButton.Image = global::Desktop.Properties.Resources.prideti;
             this.AddButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.AddButton.Location = new System.Drawing.Point(6, 227);
+            this.AddButton.Location = new System.Drawing.Point(6, 274);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(123, 40);
             this.AddButton.TabIndex = 5;
@@ -161,7 +220,7 @@
             this.UserButton.ForeColor = System.Drawing.Color.White;
             this.UserButton.Image = global::Desktop.Properties.Resources.vartotojasjuodas;
             this.UserButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.UserButton.Location = new System.Drawing.Point(6, 181);
+            this.UserButton.Location = new System.Drawing.Point(6, 228);
             this.UserButton.Name = "UserButton";
             this.UserButton.Size = new System.Drawing.Size(123, 40);
             this.UserButton.TabIndex = 4;
@@ -178,7 +237,7 @@
             this.HomeButton.ForeColor = System.Drawing.Color.White;
             this.HomeButton.Image = global::Desktop.Properties.Resources.namuksJuodas;
             this.HomeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.HomeButton.Location = new System.Drawing.Point(6, 135);
+            this.HomeButton.Location = new System.Drawing.Point(6, 182);
             this.HomeButton.Name = "HomeButton";
             this.HomeButton.Size = new System.Drawing.Size(123, 40);
             this.HomeButton.TabIndex = 3;
@@ -250,7 +309,6 @@
             this.panel3.Controls.Add(this.settingsUC2);
             this.panel3.Controls.Add(this.settingsUC1);
             this.panel3.Controls.Add(this.shareUC1);
-            this.panel3.Controls.Add(this.addUC1);
             this.panel3.Controls.Add(this.userUC1);
             this.panel3.Controls.Add(this.homeUC1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -280,13 +338,6 @@
             this.shareUC1.Size = new System.Drawing.Size(737, 382);
             this.shareUC1.TabIndex = 3;
             // 
-            // addUC1
-            // 
-            this.addUC1.Location = new System.Drawing.Point(0, 0);
-            this.addUC1.Name = "addUC1";
-            this.addUC1.Size = new System.Drawing.Size(737, 382);
-            this.addUC1.TabIndex = 2;
-            // 
             // userUC1
             // 
             this.userUC1.Location = new System.Drawing.Point(0, 0);
@@ -315,6 +366,7 @@
             this.Text = "RedesignedMainPage";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -341,9 +393,11 @@
         private System.Windows.Forms.Panel panel3;
         private UserUC userUC1;
         private HomeUC homeUC1;
-        private AddUC addUC1;
         private ShareUC shareUC1;
         private SettingsUC settingsUC1;
         private SettingsUC settingsUC2;
+        private CircularProgressBar.CircularProgressBar circularProgressBar1;
+        private System.Windows.Forms.Label valueLabel;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

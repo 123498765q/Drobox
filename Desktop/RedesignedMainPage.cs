@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -18,6 +19,9 @@ namespace Desktop
             SidePanel.Height = HomeButton.Height;
             SidePanel.Top = HomeButton.Top;
             homeUC1.BringToFront();
+            circularProgressBar1.Minimum = 0;
+            circularProgressBar1.Maximum = 100;
+            Rounded();
         }
 
         Point lastClick;
@@ -35,22 +39,23 @@ namespace Desktop
             SidePanel.Top = UserButton.Top;
             NavigationLabel.Text = "User";
             userUC1.BringToFront();
+            //circularProgressBar1.Style = ProgressBarStyle.Blocks;
         }
 
         private void AddButton_Click(object sender, EventArgs e)
         {
             SidePanel.Height = AddButton.Height;
             SidePanel.Top = AddButton.Top;
-            NavigationLabel.Text = "Add";
-            addUC1.BringToFront();
+            //NavigationLabel.Text = "Add";
+            //addUC1.BringToFront();
         }
 
         private void ShareButton_Click(object sender, EventArgs e)
         {
             SidePanel.Height = ShareButton.Height;
             SidePanel.Top = ShareButton.Top;
-            NavigationLabel.Text = "Share";
-            shareUC1.BringToFront();
+            //NavigationLabel.Text = "Share";
+            //shareUC1.BringToFront();
         }
 
         private void SettingsButton_Click(object sender, EventArgs e)
@@ -84,6 +89,19 @@ namespace Desktop
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
+        public void Rounded()
+        {
+            Rectangle r = new Rectangle(0, 0, pictureBox2.Width, pictureBox2.Height);
+            System.Drawing.Drawing2D.GraphicsPath gp = new System.Drawing.Drawing2D.GraphicsPath();
+            int d = 50;
+            gp.AddArc(r.X, r.Y, d, d, 180, 90);
+            gp.AddArc(r.X + r.Width - d, r.Y, d, d, 270, 90);
+            gp.AddArc(r.X + r.Width - d, r.Y + r.Height - d, d, d, 0, 90);
+            gp.AddArc(r.X, r.Y + r.Height - d, d, d, 90, 90);
+            pictureBox2.Region = new Region(gp);
+        }
+
 
     }
 }

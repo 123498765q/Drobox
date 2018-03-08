@@ -124,6 +124,9 @@
   <data name="home" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\home1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="vartotojas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\vartotojas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="namuksJuodas" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\namuksJuodas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -136,8 +139,8 @@
   <data name="logotipas" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logotipas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="vartotojas" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\vartotojas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="nustatymai" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\nustatymai.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="namas" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\namas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -151,8 +154,8 @@
   <data name="folder" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\folder1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="nustatymai" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\nustatymai.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="lo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -187,14 +190,14 @@
   <data name="namukas" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\namukas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="sutrauk" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sutrauk.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="settingscopy" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\settingscopy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="exitbutton" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\exitbutton.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="lo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\lo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="vartotojasjuodas" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\vartotojasjuodas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -217,7 +220,7 @@
   <data name="us" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\us.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="sutrauk" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sutrauk.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="McDonald's_Gwazi_logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\McDonald's_Gwazi_logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
