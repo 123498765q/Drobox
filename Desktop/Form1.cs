@@ -17,12 +17,10 @@ namespace Desktop
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            MainPage hh = new MainPage();
-            hh.Show();
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            webBrowser1.Navigate(Application.StartupPath + "http://localhost:57769/GoogleLogin/index.html");
         }
     }
 }
