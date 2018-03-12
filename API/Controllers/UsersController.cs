@@ -23,7 +23,6 @@ namespace API.Controllers
         [Route("GoogleLogin/api/login")]
         public IHttpActionResult Login(UserViewModel user)
         {
-
             return Ok();
         }
 
