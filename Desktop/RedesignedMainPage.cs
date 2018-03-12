@@ -19,6 +19,7 @@ namespace Desktop
             SidePanel.Height = HomeButton.Height;
             SidePanel.Top = HomeButton.Top;
             homeUC1.BringToFront();
+            settingsUC2.Controls.Add(button1);
             circularProgressBar1.Minimum = 0;
             circularProgressBar1.Maximum = 100;
             Rounded();
@@ -102,6 +103,13 @@ namespace Desktop
             pictureBox2.Region = new Region(gp);
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form1 form2 = new Form1();
+            form2.Tag = this;
+            form2.Show(this);
+            Hide();
 
+        }
     }
 }
