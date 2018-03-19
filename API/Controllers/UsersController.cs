@@ -26,6 +26,11 @@ namespace API.Controllers
             return Ok();
         }
 
+        //[HttpGet]
+        //[Route("/api/login/{username}")]
+        //public IHttpActionResult GetLoggedUser(UserViewModel user)
+        //{
+        //}
 
         public IQueryable<User> GetUsers()
         {

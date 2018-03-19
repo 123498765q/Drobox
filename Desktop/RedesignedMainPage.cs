@@ -16,6 +16,7 @@ namespace Desktop
         public RedesignedMainPage()
         {
             InitializeComponent();
+
             SidePanel.Height = HomeButton.Height;
             SidePanel.Top = HomeButton.Top;
             homeUC1.BringToFront();
@@ -105,7 +106,7 @@ namespace Desktop
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form1 form2 = new Form1();
+            LoginForm form2 = new LoginForm();
             form2.Tag = this;
             form2.Show(this);
             Hide();
