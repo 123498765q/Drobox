@@ -19,7 +19,7 @@ namespace API.Controllers
 
         // GET: api/Person
         [HttpGet]
-        [Route("api/people")]
+        [Route("api/GoogleLogin/")]
         public IQueryable<Person> GetPersons()
         {
             return db.Persons;
