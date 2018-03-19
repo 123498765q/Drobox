@@ -13,17 +13,12 @@
     var Img = profile.getImageUrl();
     var userName = JSON.stringify({ Name, Email });
     $.ajax({
-
         type: 'POST',
         url: 'api/login',
         data: userName,
         contentType: 'application/json; charset=utf-8',
         dataType: 'json',
-        success: function (data) { alert("valio"); },
-
-        error: function (msg) {
-            alert(msg);
-        }
+        success: function (data) { alert("Success"); }
     });
 
 

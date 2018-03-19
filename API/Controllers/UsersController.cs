@@ -23,10 +23,14 @@ namespace API.Controllers
         [Route("GoogleLogin/api/login")]
         public IHttpActionResult Login(UserViewModel user)
         {
-
             return Ok();
         }
 
+        //[HttpGet]
+        //[Route("/api/login/{username}")]
+        //public IHttpActionResult GetLoggedUser(UserViewModel user)
+        //{
+        //}
 
         public IQueryable<User> GetUsers()
         {
