@@ -1,5 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\CefSharp.WinForms.63.0.2\build\CefSharp.WinForms.props" Condition="Exists('..\packages\CefSharp.WinForms.63.0.2\build\CefSharp.WinForms.props')" />
+  <Import Project="..\packages\CefSharp.Common.63.0.2\build\CefSharp.Common.props" Condition="Exists('..\packages\CefSharp.Common.63.0.2\build\CefSharp.Common.props')" />
+  <Import Project="..\packages\cef.redist.x86.3.3239.1723\build\cef.redist.x86.props" Condition="Exists('..\packages\cef.redist.x86.3.3239.1723\build\cef.redist.x86.props')" />
+  <Import Project="..\packages\cef.redist.x64.3.3239.1723\build\cef.redist.x64.props" Condition="Exists('..\packages\cef.redist.x64.3.3239.1723\build\cef.redist.x64.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -11,9 +15,11 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -31,9 +37,47 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="CircularProgressBar, Version=2.5.6403.13419, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\CircularProgressBar.2.5.6403.13419\lib\net35-client\CircularProgressBar.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.85.4.369, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\OpenWebKitSharp.1.0.7\lib\net40\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="JSCore, Version=1.0.1.2, Culture=neutral, PublicKeyToken=d6b823da6d3fa04b, processorArchitecture=x86">
+      <HintPath>..\packages\OpenWebKitSharp.1.0.7\lib\net40\JSCore.dll</HintPath>
+    </Reference>
+    <Reference Include="MyDownloader.App, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\OpenWebKitSharp.1.0.7\lib\net40\MyDownloader.App.dll</HintPath>
+    </Reference>
+    <Reference Include="MyDownloader.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\OpenWebKitSharp.1.0.7\lib\net40\MyDownloader.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="MyDownloader.Extension, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\OpenWebKitSharp.1.0.7\lib\net40\MyDownloader.Extension.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenWebKitSharp, Version=3.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <HintPath>..\packages\OpenWebKitSharp.1.0.7\lib\net40\OpenWebKitSharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -46,21 +90,25 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="TabStrip, Version=2.0.2523.29272, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\OpenWebKitSharp.1.0.7\lib\net40\TabStrip.dll</HintPath>
+    </Reference>
     <Reference Include="WinFormAnimation, Version=1.5.6298.3372, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\WinFormAnimation.1.5.6298.3372\lib\net35-client\WinFormAnimation.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UC Screens\HomeUC.cs">
+    <Compile Include="GoogleLogin.cs" />
+    <Compile Include="HomeUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UC Screens\HomeUC.Designer.cs">
+    <Compile Include="HomeUC.Designer.cs">
       <DependentUpon>HomeUC.cs</DependentUpon>
     </Compile>
     <Compile Include="MainPage.cs">
@@ -77,22 +125,28 @@
     <Compile Include="RedesignedMainPage.Designer.cs">
       <DependentUpon>RedesignedMainPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="UC Screens\SettingsUC.cs">
+    <Compile Include="SettingsUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UC Screens\SettingsUC.Designer.cs">
+    <Compile Include="SettingsUC.Designer.cs">
       <DependentUpon>SettingsUC.cs</DependentUpon>
     </Compile>
-    <Compile Include="UC Screens\UserUC.cs">
+    <Compile Include="ShareUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UC Screens\UserUC.Designer.cs">
+    <Compile Include="ShareUC.Designer.cs">
+      <DependentUpon>ShareUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserUC.Designer.cs">
       <DependentUpon>UserUC.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UC Screens\HomeUC.resx">
+    <EmbeddedResource Include="HomeUC.resx">
       <DependentUpon>HomeUC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainPage.resx">
@@ -106,10 +160,13 @@
     <EmbeddedResource Include="RedesignedMainPage.resx">
       <DependentUpon>RedesignedMainPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UC Screens\SettingsUC.resx">
+    <EmbeddedResource Include="SettingsUC.resx">
       <DependentUpon>SettingsUC.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UC Screens\UserUC.resx">
+    <EmbeddedResource Include="ShareUC.resx">
+      <DependentUpon>ShareUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserUC.resx">
       <DependentUpon>UserUC.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -215,14 +272,24 @@
     <None Include="Resources\namuksJuodas.png" />
     <None Include="Resources\isjungti.png" />
     <None Include="Resources\McDonald%27s_Gwazi_logo.png" />
-    <None Include="Resources\ikona.jpg" />
     <Content Include="Resources\redesignedLogo.png" />
     <None Include="Resources\redesignedLogo1.png" />
     <None Include="Resources\sutrauk.png" />
-    <Content Include="Resources\txt.png" />
-    <None Include="Resources\txt1.png" />
     <Content Include="Resources\usecclicked.png" />
     <None Include="Resources\usecclicked1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\cef.redist.x64.3.3239.1723\build\cef.redist.x64.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\cef.redist.x64.3.3239.1723\build\cef.redist.x64.props'))" />
+    <Error Condition="!Exists('..\packages\cef.redist.x86.3.3239.1723\build\cef.redist.x86.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\cef.redist.x86.3.3239.1723\build\cef.redist.x86.props'))" />
+    <Error Condition="!Exists('..\packages\CefSharp.Common.63.0.2\build\CefSharp.Common.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.Common.63.0.2\build\CefSharp.Common.props'))" />
+    <Error Condition="!Exists('..\packages\CefSharp.Common.63.0.2\build\CefSharp.Common.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.Common.63.0.2\build\CefSharp.Common.targets'))" />
+    <Error Condition="!Exists('..\packages\CefSharp.WinForms.63.0.2\build\CefSharp.WinForms.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.WinForms.63.0.2\build\CefSharp.WinForms.props'))" />
+    <Error Condition="!Exists('..\packages\CefSharp.WinForms.63.0.2\build\CefSharp.WinForms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\CefSharp.WinForms.63.0.2\build\CefSharp.WinForms.targets'))" />
+  </Target>
+  <Import Project="..\packages\CefSharp.Common.63.0.2\build\CefSharp.Common.targets" Condition="Exists('..\packages\CefSharp.Common.63.0.2\build\CefSharp.Common.targets')" />
+  <Import Project="..\packages\CefSharp.WinForms.63.0.2\build\CefSharp.WinForms.targets" Condition="Exists('..\packages\CefSharp.WinForms.63.0.2\build\CefSharp.WinForms.targets')" />
 </Project>
