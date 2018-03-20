@@ -153,6 +153,16 @@ namespace Desktop.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ikona {
+            get {
+                object obj = ResourceManager.GetObject("ikona", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap isjungti {
             get {
                 object obj = ResourceManager.GetObject("isjungti", resourceCulture);
@@ -336,6 +346,16 @@ namespace Desktop.Properties {
         internal static System.Drawing.Bitmap sutrauk {
             get {
                 object obj = ResourceManager.GetObject("sutrauk", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap txt {
+            get {
+                object obj = ResourceManager.GetObject("txt", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

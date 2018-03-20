@@ -29,32 +29,31 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.valueLabel = new System.Windows.Forms.Label();
             this.circularProgressBar1 = new CircularProgressBar.CircularProgressBar();
             this.SidePanel = new System.Windows.Forms.Panel();
             this.HeadLabel = new System.Windows.Forms.Label();
-            this.SettingsButton = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ShareButton = new System.Windows.Forms.Button();
             this.AddButton = new System.Windows.Forms.Button();
-            this.UserButton = new System.Windows.Forms.Button();
-            this.HomeButton = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.MinimizeButton = new System.Windows.Forms.Button();
-            this.ExitButton = new System.Windows.Forms.Button();
             this.NavigationLabel = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.MinimizeButton = new System.Windows.Forms.Button();
+            this.ExitButton = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.SettingsButton = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.UserButton = new System.Windows.Forms.Button();
+            this.HomeButton = new System.Windows.Forms.Button();
             this.settingsUC2 = new Desktop.SettingsUC();
             this.settingsUC1 = new Desktop.SettingsUC();
-            this.shareUC1 = new Desktop.ShareUC();
             this.userUC1 = new Desktop.UserUC();
             this.homeUC1 = new Desktop.HomeUC();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -77,17 +76,6 @@
             this.panel1.Size = new System.Drawing.Size(128, 409);
             this.panel1.TabIndex = 0;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.pictureBox2.BackgroundImage = global::Desktop.Properties.Resources.vartotojas;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(38, 109);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(50, 50);
-            this.pictureBox2.TabIndex = 6;
-            this.pictureBox2.TabStop = false;
-            // 
             // valueLabel
             // 
             this.valueLabel.AutoSize = true;
@@ -107,7 +95,7 @@
             this.circularProgressBar1.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Bold);
             this.circularProgressBar1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.circularProgressBar1.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.circularProgressBar1.InnerMargin = 30;
+            this.circularProgressBar1.InnerMargin = 28;
             this.circularProgressBar1.InnerWidth = 15;
             this.circularProgressBar1.Location = new System.Drawing.Point(28, 96);
             this.circularProgressBar1.MarqueeAnimationSpeed = 2000;
@@ -150,6 +138,119 @@
             this.HeadLabel.TabIndex = 3;
             this.HeadLabel.Text = "DroBox";
             // 
+            // ShareButton
+            // 
+            this.ShareButton.FlatAppearance.BorderSize = 0;
+            this.ShareButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ShareButton.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            this.ShareButton.ForeColor = System.Drawing.Color.White;
+            this.ShareButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ShareButton.Location = new System.Drawing.Point(6, 320);
+            this.ShareButton.Name = "ShareButton";
+            this.ShareButton.Size = new System.Drawing.Size(123, 40);
+            this.ShareButton.TabIndex = 6;
+            this.ShareButton.Text = "   Unknown";
+            this.ShareButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ShareButton.UseVisualStyleBackColor = true;
+            this.ShareButton.Click += new System.EventHandler(this.ShareButton_Click);
+            // 
+            // AddButton
+            // 
+            this.AddButton.FlatAppearance.BorderSize = 0;
+            this.AddButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddButton.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            this.AddButton.ForeColor = System.Drawing.Color.White;
+            this.AddButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.AddButton.Location = new System.Drawing.Point(6, 274);
+            this.AddButton.Name = "AddButton";
+            this.AddButton.Size = new System.Drawing.Size(123, 40);
+            this.AddButton.TabIndex = 5;
+            this.AddButton.Text = "   Unknown";
+            this.AddButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.AddButton.UseVisualStyleBackColor = true;
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Firebrick;
+            this.panel2.Controls.Add(this.MinimizeButton);
+            this.panel2.Controls.Add(this.ExitButton);
+            this.panel2.Controls.Add(this.NavigationLabel);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(128, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(737, 27);
+            this.panel2.TabIndex = 1;
+            this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseDown);
+            this.panel2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseMove);
+            // 
+            // NavigationLabel
+            // 
+            this.NavigationLabel.AutoSize = true;
+            this.NavigationLabel.BackColor = System.Drawing.Color.Transparent;
+            this.NavigationLabel.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            this.NavigationLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            this.NavigationLabel.Location = new System.Drawing.Point(1, 1);
+            this.NavigationLabel.Name = "NavigationLabel";
+            this.NavigationLabel.Size = new System.Drawing.Size(65, 23);
+            this.NavigationLabel.TabIndex = 8;
+            this.NavigationLabel.Text = "Home";
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.settingsUC2);
+            this.panel3.Controls.Add(this.settingsUC1);
+            this.panel3.Controls.Add(this.userUC1);
+            this.panel3.Controls.Add(this.homeUC1);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(128, 27);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(737, 382);
+            this.panel3.TabIndex = 2;
+            // 
+            // MinimizeButton
+            // 
+            this.MinimizeButton.FlatAppearance.BorderSize = 0;
+            this.MinimizeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MinimizeButton.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            this.MinimizeButton.ForeColor = System.Drawing.Color.White;
+            this.MinimizeButton.Image = global::Desktop.Properties.Resources.sutrauk;
+            this.MinimizeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.MinimizeButton.Location = new System.Drawing.Point(688, 3);
+            this.MinimizeButton.Name = "MinimizeButton";
+            this.MinimizeButton.Size = new System.Drawing.Size(24, 21);
+            this.MinimizeButton.TabIndex = 9;
+            this.MinimizeButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.MinimizeButton.UseVisualStyleBackColor = true;
+            this.MinimizeButton.Click += new System.EventHandler(this.MinimizeButton_Click);
+            // 
+            // ExitButton
+            // 
+            this.ExitButton.FlatAppearance.BorderSize = 0;
+            this.ExitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ExitButton.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            this.ExitButton.ForeColor = System.Drawing.Color.White;
+            this.ExitButton.Image = global::Desktop.Properties.Resources.isjungti;
+            this.ExitButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ExitButton.Location = new System.Drawing.Point(710, 3);
+            this.ExitButton.Name = "ExitButton";
+            this.ExitButton.Size = new System.Drawing.Size(24, 21);
+            this.ExitButton.TabIndex = 8;
+            this.ExitButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.ExitButton.UseVisualStyleBackColor = true;
+            this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.pictureBox2.BackgroundImage = global::Desktop.Properties.Resources.ikona;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox2.Location = new System.Drawing.Point(36, 104);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(55, 55);
+            this.pictureBox2.TabIndex = 6;
+            this.pictureBox2.TabStop = false;
+            // 
             // SettingsButton
             // 
             this.SettingsButton.FlatAppearance.BorderSize = 0;
@@ -171,46 +272,12 @@
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Image = global::Desktop.Properties.Resources.logo;
-            this.pictureBox1.Location = new System.Drawing.Point(31, 2);
+            this.pictureBox1.Location = new System.Drawing.Point(31, 5);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(65, 65);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
-            // 
-            // ShareButton
-            // 
-            this.ShareButton.FlatAppearance.BorderSize = 0;
-            this.ShareButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ShareButton.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            this.ShareButton.ForeColor = System.Drawing.Color.White;
-            this.ShareButton.Image = global::Desktop.Properties.Resources.dalintis;
-            this.ShareButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ShareButton.Location = new System.Drawing.Point(6, 320);
-            this.ShareButton.Name = "ShareButton";
-            this.ShareButton.Size = new System.Drawing.Size(123, 40);
-            this.ShareButton.TabIndex = 6;
-            this.ShareButton.Text = "   Share";
-            this.ShareButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.ShareButton.UseVisualStyleBackColor = true;
-            this.ShareButton.Click += new System.EventHandler(this.ShareButton_Click);
-            // 
-            // AddButton
-            // 
-            this.AddButton.FlatAppearance.BorderSize = 0;
-            this.AddButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddButton.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            this.AddButton.ForeColor = System.Drawing.Color.White;
-            this.AddButton.Image = global::Desktop.Properties.Resources.prideti;
-            this.AddButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.AddButton.Location = new System.Drawing.Point(6, 274);
-            this.AddButton.Name = "AddButton";
-            this.AddButton.Size = new System.Drawing.Size(123, 40);
-            this.AddButton.TabIndex = 5;
-            this.AddButton.Text = "   Add";
-            this.AddButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.AddButton.UseVisualStyleBackColor = true;
-            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // UserButton
             // 
@@ -246,77 +313,6 @@
             this.HomeButton.UseVisualStyleBackColor = true;
             this.HomeButton.Click += new System.EventHandler(this.HomeButton_Click);
             // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.Firebrick;
-            this.panel2.Controls.Add(this.MinimizeButton);
-            this.panel2.Controls.Add(this.ExitButton);
-            this.panel2.Controls.Add(this.NavigationLabel);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(128, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(737, 27);
-            this.panel2.TabIndex = 1;
-            this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseDown);
-            this.panel2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseMove);
-            // 
-            // MinimizeButton
-            // 
-            this.MinimizeButton.FlatAppearance.BorderSize = 0;
-            this.MinimizeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MinimizeButton.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            this.MinimizeButton.ForeColor = System.Drawing.Color.White;
-            this.MinimizeButton.Image = global::Desktop.Properties.Resources.sutrauk;
-            this.MinimizeButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.MinimizeButton.Location = new System.Drawing.Point(688, 3);
-            this.MinimizeButton.Name = "MinimizeButton";
-            this.MinimizeButton.Size = new System.Drawing.Size(24, 21);
-            this.MinimizeButton.TabIndex = 9;
-            this.MinimizeButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.MinimizeButton.UseVisualStyleBackColor = true;
-            this.MinimizeButton.Click += new System.EventHandler(this.MinimizeButton_Click);
-            // 
-            // ExitButton
-            // 
-            this.ExitButton.FlatAppearance.BorderSize = 0;
-            this.ExitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ExitButton.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            this.ExitButton.ForeColor = System.Drawing.Color.White;
-            this.ExitButton.Image = global::Desktop.Properties.Resources.isjungti;
-            this.ExitButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.ExitButton.Location = new System.Drawing.Point(710, 3);
-            this.ExitButton.Name = "ExitButton";
-            this.ExitButton.Size = new System.Drawing.Size(24, 21);
-            this.ExitButton.TabIndex = 8;
-            this.ExitButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.ExitButton.UseVisualStyleBackColor = true;
-            this.ExitButton.Click += new System.EventHandler(this.ExitButton_Click);
-            // 
-            // NavigationLabel
-            // 
-            this.NavigationLabel.AutoSize = true;
-            this.NavigationLabel.BackColor = System.Drawing.Color.Transparent;
-            this.NavigationLabel.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            this.NavigationLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
-            this.NavigationLabel.Location = new System.Drawing.Point(1, 1);
-            this.NavigationLabel.Name = "NavigationLabel";
-            this.NavigationLabel.Size = new System.Drawing.Size(65, 23);
-            this.NavigationLabel.TabIndex = 8;
-            this.NavigationLabel.Text = "Home";
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.settingsUC2);
-            this.panel3.Controls.Add(this.settingsUC1);
-            this.panel3.Controls.Add(this.shareUC1);
-            this.panel3.Controls.Add(this.userUC1);
-            this.panel3.Controls.Add(this.homeUC1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(128, 27);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(737, 382);
-            this.panel3.TabIndex = 2;
-            // 
             // settingsUC2
             // 
             this.settingsUC2.Location = new System.Drawing.Point(0, 0);
@@ -331,13 +327,6 @@
             this.settingsUC1.Size = new System.Drawing.Size(737, 382);
             this.settingsUC1.TabIndex = 4;
             // 
-            // shareUC1
-            // 
-            this.shareUC1.Location = new System.Drawing.Point(0, 0);
-            this.shareUC1.Name = "shareUC1";
-            this.shareUC1.Size = new System.Drawing.Size(737, 382);
-            this.shareUC1.TabIndex = 3;
-            // 
             // userUC1
             // 
             this.userUC1.Location = new System.Drawing.Point(0, 0);
@@ -347,6 +336,7 @@
             // 
             // homeUC1
             // 
+            this.homeUC1.AllowDrop = true;
             this.homeUC1.Location = new System.Drawing.Point(0, 0);
             this.homeUC1.Name = "homeUC1";
             this.homeUC1.Size = new System.Drawing.Size(737, 382);
@@ -364,13 +354,14 @@
             this.Name = "RedesignedMainPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RedesignedMainPage";
+            this.Resize += new System.EventHandler(this.RedesignedMainPage_Resize);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -393,7 +384,6 @@
         private System.Windows.Forms.Panel panel3;
         private UserUC userUC1;
         private HomeUC homeUC1;
-        private ShareUC shareUC1;
         private SettingsUC settingsUC1;
         private SettingsUC settingsUC2;
         private CircularProgressBar.CircularProgressBar circularProgressBar1;

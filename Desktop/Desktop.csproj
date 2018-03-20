@@ -57,10 +57,10 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="HomeUC.cs">
+    <Compile Include="UC Screens\HomeUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="HomeUC.Designer.cs">
+    <Compile Include="UC Screens\HomeUC.Designer.cs">
       <DependentUpon>HomeUC.cs</DependentUpon>
     </Compile>
     <Compile Include="MainPage.cs">
@@ -77,28 +77,22 @@
     <Compile Include="RedesignedMainPage.Designer.cs">
       <DependentUpon>RedesignedMainPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="SettingsUC.cs">
+    <Compile Include="UC Screens\SettingsUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="SettingsUC.Designer.cs">
+    <Compile Include="UC Screens\SettingsUC.Designer.cs">
       <DependentUpon>SettingsUC.cs</DependentUpon>
     </Compile>
-    <Compile Include="ShareUC.cs">
+    <Compile Include="UC Screens\UserUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ShareUC.Designer.cs">
-      <DependentUpon>ShareUC.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserUC.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserUC.Designer.cs">
+    <Compile Include="UC Screens\UserUC.Designer.cs">
       <DependentUpon>UserUC.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HomeUC.resx">
+    <EmbeddedResource Include="UC Screens\HomeUC.resx">
       <DependentUpon>HomeUC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainPage.resx">
@@ -112,13 +106,10 @@
     <EmbeddedResource Include="RedesignedMainPage.resx">
       <DependentUpon>RedesignedMainPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SettingsUC.resx">
+    <EmbeddedResource Include="UC Screens\SettingsUC.resx">
       <DependentUpon>SettingsUC.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ShareUC.resx">
-      <DependentUpon>ShareUC.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserUC.resx">
+    <EmbeddedResource Include="UC Screens\UserUC.resx">
       <DependentUpon>UserUC.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -224,9 +215,12 @@
     <None Include="Resources\namuksJuodas.png" />
     <None Include="Resources\isjungti.png" />
     <None Include="Resources\McDonald%27s_Gwazi_logo.png" />
+    <None Include="Resources\ikona.jpg" />
     <Content Include="Resources\redesignedLogo.png" />
     <None Include="Resources\redesignedLogo1.png" />
     <None Include="Resources\sutrauk.png" />
+    <Content Include="Resources\txt.png" />
+    <None Include="Resources\txt1.png" />
     <Content Include="Resources\usecclicked.png" />
     <None Include="Resources\usecclicked1.png" />
   </ItemGroup>

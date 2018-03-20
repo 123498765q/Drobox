@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -13,6 +14,7 @@ namespace Desktop
 {
     public partial class RedesignedMainPage : Form
     {
+        
         public RedesignedMainPage()
         {
             InitializeComponent();
@@ -21,20 +23,34 @@ namespace Desktop
             homeUC1.BringToFront();
             circularProgressBar1.Minimum = 0;
             circularProgressBar1.Maximum = 100;
+            checkProgressBarPercents();
             Rounded();
+        }
+
+        static int maxVieta = 5;
+        public void checkProgressBarPercents()
+        {
+            long length = Directory.GetFiles(@"C:\Users\ASUS-pc\Desktop\Cloud", "*", SearchOption.AllDirectories).Sum(t => (new FileInfo(t).Length));
+            double s = (length / 1024f) / 1024f;
+            double skaiciavimai = (s * 100 / maxVieta);
+            circularProgressBar1.Value = Convert.ToInt32(skaiciavimai);
+            valueLabel.Text = circularProgressBar1.Value + "%";
         }
 
         Point lastClick;
         private void HomeButton_Click(object sender, EventArgs e)
         {
+            checkProgressBarPercents();
             SidePanel.Height = HomeButton.Height;
             SidePanel.Top = HomeButton.Top;
             NavigationLabel.Text = "Home";
             homeUC1.BringToFront();
+            valueLabel.Text = circularProgressBar1.Value + "%";
         }
 
         private void UserButton_Click(object sender, EventArgs e)
         {
+            checkProgressBarPercents();
             SidePanel.Height = UserButton.Height;
             SidePanel.Top = UserButton.Top;
             NavigationLabel.Text = "User";
@@ -44,6 +60,7 @@ namespace Desktop
 
         private void AddButton_Click(object sender, EventArgs e)
         {
+            checkProgressBarPercents();
             SidePanel.Height = AddButton.Height;
             SidePanel.Top = AddButton.Top;
             //NavigationLabel.Text = "Add";
@@ -52,6 +69,7 @@ namespace Desktop
 
         private void ShareButton_Click(object sender, EventArgs e)
         {
+            checkProgressBarPercents();
             SidePanel.Height = ShareButton.Height;
             SidePanel.Top = ShareButton.Top;
             //NavigationLabel.Text = "Share";
@@ -60,6 +78,7 @@ namespace Desktop
 
         private void SettingsButton_Click(object sender, EventArgs e)
         {
+            checkProgressBarPercents();
             SidePanel.Height = SettingsButton.Height;
             SidePanel.Top = SettingsButton.Top;
             NavigationLabel.Text = "Settings";
@@ -87,21 +106,25 @@ namespace Desktop
 
         private void MinimizeButton_Click(object sender, EventArgs e)
         {
+            panel1.Visible = false;
             this.WindowState = FormWindowState.Minimized;
         }
 
+        private void RedesignedMainPage_Resize(object sender, EventArgs e)
+        {
+            if (WindowState == FormWindowState.Normal)
+            panel1.Visible = true;
+        }
         public void Rounded()
         {
             Rectangle r = new Rectangle(0, 0, pictureBox2.Width, pictureBox2.Height);
             System.Drawing.Drawing2D.GraphicsPath gp = new System.Drawing.Drawing2D.GraphicsPath();
-            int d = 50;
+            int d = 55;
             gp.AddArc(r.X, r.Y, d, d, 180, 90);
             gp.AddArc(r.X + r.Width - d, r.Y, d, d, 270, 90);
             gp.AddArc(r.X + r.Width - d, r.Y + r.Height - d, d, d, 0, 90);
             gp.AddArc(r.X, r.Y + r.Height - d, d, d, 90, 90);
             pictureBox2.Region = new Region(gp);
         }
-
-
     }
 }
