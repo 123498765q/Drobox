@@ -13,5 +13,7 @@
             <Image Source="Assets/btn_google_sign-in.png" Stretch="UniformToFill"/>
         </Button>
         <HyperlinkButton x:Name="link" Content="If your login does not begin, click here to retry" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Margin="115,0,115,155" Click="link_Click" Height="40"/>
+        <ProgressRing Height="70" Width="70" Margin="250,116,250,284"/>
+        <ProgressRing IsActive="True" Height="70" Width="70" Margin="250,116,250,284"/>
     </Grid>
 </Page>

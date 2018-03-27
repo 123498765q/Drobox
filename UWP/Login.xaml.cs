@@ -33,11 +33,15 @@ namespace UWP
         const string tokenEndpoint = "https://www.googleapis.com/oauth2/v4/token";
         const string userInfoEndpoint = "https://www.googleapis.com/oauth2/v3/userinfo";
         private string authorizationRequest;
+     
         public Login()
         {
-            this.InitializeComponent();
-        }
 
+            this.InitializeComponent();
+         
+     
+        }
+       
         private void Login_btn_OnClick(object sender, RoutedEventArgs e)
         {
             string state = randomDataBase64url(32);
@@ -58,8 +62,11 @@ namespace UWP
                 code_challenge_method);
 
             //output("Opening authorization request URI: " + authorizationRequest);
-
+        
             var success = Windows.System.Launcher.LaunchUriAsync(new Uri(authorizationRequest));
+
+  
+
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -112,10 +119,13 @@ namespace UWP
             {
                 Debug.WriteLine(e.Parameter);
             }
+       
         }
 
         async void performCodeExchangeAsync(string code, string code_verifier)
         {
+       
+
             string tokenRequestBody = string.Format(
                 "code={0}&redirect_uri={1}&client_id={2}&code_verifier={3}&scope=&grant_type=authorization_code",
                 code,
@@ -153,11 +163,13 @@ namespace UWP
             //JsonObject obj = JsonObject.Parse(info);
             string userinfoResponseContent = await userinfoResponse.Content.ReadAsStringAsync();
             output(userinfoResponseContent);
+           
             UserInfo userInfo = Str2UserInfo(userinfoResponseContent);
             Util.PostUser(userInfo);
-            
+        
             if (userinfoResponseContent != null)
             {
+
                 App.sub = userInfo.sub;
                 App.name = userInfo.name;
                 App.given_name = userInfo.given_name;

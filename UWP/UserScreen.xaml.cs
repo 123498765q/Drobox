@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Toolkit.Uwp.UI.Controls;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,8 +26,29 @@ namespace UWP
     {
         public UserScreen()
         {
-            this.InitializeComponent();
+            this.InitializeComponent();     
             profilePicture.Source = new BitmapImage(new Uri(App.picture));
+            Name.Text = App.name;
+            FirstName.Text = App.given_name;
+            LastName.Text = App.family_name;
+            if (App.gender != null)
+            {
+                Gender.Text = App.gender;
+            }
+            else
+            {
+                Gender.Text = "unknown";
+            }
+            if (App.locale != null)
+            {
+                Location.Text = App.locale;
+            }
+            else
+            {
+                Location.Text = "unknown";
+            }
+            Id.Text = App.sub;
+           
         }
        
     }
