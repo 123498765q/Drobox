@@ -2,27 +2,20 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace API.Models
+namespace UWP.Classes
 {
-    public class User
+    public class UserInfo
     {
-        [Key]
         public string sub { get; set; }
-        [Required]
         public string name { get; set; }
-        [Required]
         public string given_name { get; set; }
-        [Required]
         public string family_name { get; set; }
-        [Required]
         public string profile { get; set; }
-        [Required]
         public string picture { get; set; }
-        
         public string gender { get; set; }
-        
         public string locale { get; set; }
     }
 }

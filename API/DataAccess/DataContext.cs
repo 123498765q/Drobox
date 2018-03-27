@@ -14,8 +14,6 @@ namespace API.DataAccess
             Database.SetInitializer(new DbInit());
             Database.Initialize(true);
         }
-
-        public DbSet<Person> Persons { get; set; }
         public DbSet<User> Users { get; set; }
     }
 }
