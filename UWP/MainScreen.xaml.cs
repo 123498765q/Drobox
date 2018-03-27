@@ -59,6 +59,8 @@ namespace UWP
                     case "shared":
                         NavView.Header = "Shared";
                         break;
+                    case "login":
+                        break;
 
                 }
             }

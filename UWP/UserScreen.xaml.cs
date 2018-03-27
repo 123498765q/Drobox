@@ -25,6 +25,7 @@ namespace UWP
         public UserScreen()
         {
             this.InitializeComponent();
+            pageName.Text = App.sub;
         }
        
     }

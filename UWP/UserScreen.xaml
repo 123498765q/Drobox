@@ -7,13 +7,13 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    
-        <Grid>
-            <TextBlock Text="USER"
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <TextBlock x:Name="pageName" Text="USER"
                    FontSize="70"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Center"/>
-        </Grid>
-
+    </Grid>
+    
 
 </Page>

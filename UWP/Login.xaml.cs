@@ -154,11 +154,23 @@ namespace UWP
             output(userinfoResponseContent);
             UserInfo userInfo = Str2UserInfo(userinfoResponseContent);
             Util.PostUser(userInfo);
+            
+            if (userinfoResponseContent != null)
+            {
+                App.sub = userInfo.sub;
+                App.name = userInfo.name;
+                App.given_name = userInfo.given_name;
+                App.family_name = userInfo.family_name;
+                App.profile = userInfo.profile;
+                App.picture = userInfo.picture;
+                App.gender = userInfo.gender;
+                App.locale = userInfo.locale;
+                this.Frame.Navigate(typeof(MainScreen));
+            }
         }
 
         public void output(string output)
         {
-            textBoxOutput.Text = textBoxOutput.Text + output + Environment.NewLine;
             Debug.WriteLine(output);
         }
 

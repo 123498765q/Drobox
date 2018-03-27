@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using UWP.Classes;
 
 namespace UWP
 {
@@ -23,6 +24,15 @@ namespace UWP
     /// </summary>
     sealed partial class App : Application
     {
+        public static string sub { get; set; }
+        public static string name { get; set; }
+        public static string given_name { get; set; }
+        public static string family_name { get; set; }
+        public static string profile { get; set; }
+        public static string picture { get; set; }
+        public static string gender { get; set; }
+        public static string locale { get; set; }
+
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().

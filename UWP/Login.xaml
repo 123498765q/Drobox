@@ -5,20 +5,13 @@
     xmlns:local="using:UWP"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    mc:Ignorable="d" Width="600" Height="500" Background="#FF1E1E1E" MinWidth="600" MinHeight="500" MaxWidth="600" MaxHeight="500">
 
-    <RelativePanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Button x:Name="login_btn" HorizontalAlignment="Left" Margin="282,100,-264,-78" VerticalAlignment="Top" Width="206" Height="46" Click="Login_btn_OnClick"
-                BorderThickness="0" Padding="0" Background="Transparent">
+    <Grid>
+        <Button x:Name="login_btn" HorizontalAlignment="Stretch" Margin="198,0,196,224" VerticalAlignment="Bottom" Click="Login_btn_OnClick"
+                BorderThickness="0" Padding="0" Background="Transparent" Height="46">
             <Image Source="Assets/btn_google_sign-in.png" Stretch="UniformToFill"/>
         </Button>
-        <TextBox x:Name="textBoxOutput" MinHeight="158" Margin="105,159,490,273" TextWrapping="Wrap" Text=""
-                 IsReadOnly="True" ScrollViewer.VerticalScrollBarVisibility="Auto"
-                 RelativePanel.Below="login_btn"
-                 RelativePanel.AlignLeftWithPanel="True"
-                 RelativePanel.AlignRightWithPanel="True"
-                 RelativePanel.AlignBottomWithPanel="True"
-        />
-        <HyperlinkButton x:Name="link" Content="If your login does not begin, click here to retry" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="321" Margin="244,190,-457,-190" Click="link_Click"/>
-    </RelativePanel>
+        <HyperlinkButton x:Name="link" Content="If your login does not begin, click here to retry" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Margin="115,0,115,155" Click="link_Click" Height="40"/>
+    </Grid>
 </Page>
