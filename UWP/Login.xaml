@@ -7,17 +7,18 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <RelativePanel>
-        <Button x:Name="login_btn" HorizontalAlignment="Left" Margin="18,22,0,0" VerticalAlignment="Top" Width="206" Height="46" Click="Login_btn_OnClick"
+    <RelativePanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Button x:Name="login_btn" HorizontalAlignment="Left" Margin="282,100,-264,-78" VerticalAlignment="Top" Width="206" Height="46" Click="Login_btn_OnClick"
                 BorderThickness="0" Padding="0" Background="Transparent">
             <Image Source="Assets/btn_google_sign-in.png" Stretch="UniformToFill"/>
         </Button>
-        <TextBox x:Name="textBoxOutput" MinHeight="158" Margin="22,22,22,22" TextWrapping="Wrap" Text=""
+        <TextBox x:Name="textBoxOutput" MinHeight="158" Margin="105,159,490,273" TextWrapping="Wrap" Text=""
                  IsReadOnly="True" ScrollViewer.VerticalScrollBarVisibility="Auto"
                  RelativePanel.Below="login_btn"
                  RelativePanel.AlignLeftWithPanel="True"
                  RelativePanel.AlignRightWithPanel="True"
                  RelativePanel.AlignBottomWithPanel="True"
         />
+        <HyperlinkButton x:Name="link" Content="If your login does not begin, click here to retry" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="321" Margin="244,190,-457,-190" Click="link_Click"/>
     </RelativePanel>
 </Page>

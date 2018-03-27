@@ -10,7 +10,6 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using API.DataAccess;
 using API.Models;
-using API.ViewModels;
 
 namespace API.Controllers
 {
@@ -19,19 +18,6 @@ namespace API.Controllers
         private DataContext db = new DataContext();
 
         // GET: api/Users
-        [HttpPost]
-        [Route("GoogleLogin/api/login")]
-        public IHttpActionResult Login(UserViewModel user)
-        {
-            return Ok();
-        }
-
-        //[HttpGet]
-        //[Route("/api/login/{username}")]
-        //public IHttpActionResult GetLoggedUser(UserViewModel user)
-        //{
-        //}
-
         public IQueryable<User> GetUsers()
         {
             return db.Users;
@@ -52,14 +38,14 @@ namespace API.Controllers
 
         // PUT: api/Users/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutUser(Guid id, User user)
+        public IHttpActionResult PutUser(String id, User user)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != user.Id)
+            if (id != user.sub)
             {
                 return BadRequest();
             }
@@ -86,6 +72,8 @@ namespace API.Controllers
         }
 
         // POST: api/Users
+        [HttpPost]
+        [Route("api/add-user")]
         [ResponseType(typeof(User))]
         public IHttpActionResult PostUser(User user)
         {
@@ -102,7 +90,7 @@ namespace API.Controllers
             }
             catch (DbUpdateException)
             {
-                if (UserExists(user.Id))
+                if (UserExists(user.sub))
                 {
                     return Conflict();
                 }
@@ -112,43 +100,12 @@ namespace API.Controllers
                 }
             }
 
-            return CreatedAtRoute("DefaultApi", new { id = user.Id }, user);
-        }
-
-        // POST: api/Users
-        [HttpGet]
-        [Route("api/loginq")]
-        public IHttpActionResult GoogleLogin(User user)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            db.Users.Add(user);
-
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbUpdateException)
-            {
-                if (UserExists(user.Id))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return CreatedAtRoute("DefaultApi", new { id = user.Id }, user);
+            return Ok();
         }
 
         // DELETE: api/Users/5
         [ResponseType(typeof(User))]
-        public IHttpActionResult DeleteUser(Guid id)
+        public IHttpActionResult DeleteUser(String id)
         {
             User user = db.Users.Find(id);
             if (user == null)
@@ -171,9 +128,9 @@ namespace API.Controllers
             base.Dispose(disposing);
         }
 
-        private bool UserExists(Guid id)
+        private bool UserExists(String id)
         {
-            return db.Users.Count(e => e.Id == id) > 0;
+            return db.Users.Count(e => e.sub == id) > 0;
         }
     }
 }
