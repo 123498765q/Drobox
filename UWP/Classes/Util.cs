@@ -13,17 +13,20 @@ namespace UWP.Classes
     {
         public static void PostUser(UserInfo userInfo)
         {
-            using (var client = new HttpClient())
+            try
             {
-                client.BaseAddress = new Uri("http://localhost:57769/");
-                var response = client.PostAsJsonAsync("api/add-user", userInfo).Result;
-                if (response.IsSuccessStatusCode)
+                using (var client = new HttpClient())
                 {
-                    int x = 0;
-                    //Console.Write("Success");
+                    client.BaseAddress = new Uri("http://localhost:57769/");
+                    var response = client.PostAsJsonAsync("api/add-user", userInfo).Result;
+                    if (response.IsSuccessStatusCode)
+                    {
+                        
+                    }
                 }
-                //else
-                    //Console.Write("Error");
+            }
+            catch (Exception e)
+            {
             }
         }
     }

@@ -131,6 +131,7 @@ namespace UWP
             HttpClient client = new HttpClient(handler);
 
             //output(Environment.NewLine + "Exchanging code for tokens...");
+
             HttpResponseMessage response = await client.PostAsync(tokenEndpoint, content);
             string responseString = await response.Content.ReadAsStringAsync();
             //output(responseString);

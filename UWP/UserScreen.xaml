@@ -8,7 +8,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
     <Grid>
-        <Image Width="100" Height="100" Source="Assets/ikona.jpg"/>
+        <Image x:Name="profilePicture" Width="100" Height="100" Source="Assets/ikona.jpg"/>
 
 
         <controls:RadialProgressBar x:Name="RadialProgressBarControl"
@@ -18,9 +18,9 @@
     Value="70"
     Minimum="0"
     Maximum="180"
-    Thickness="25"
+    Thickness="5"
     Outline="Gray"
-    Foreground="Red"
+    Foreground="Blue"
     Background="Transparent">
         </controls:RadialProgressBar>
 
