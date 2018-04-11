@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading;
+using UWP.Classes;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.ViewManagement;
@@ -29,6 +30,7 @@ namespace UWP
             this.InitializeComponent();
             /*var titleBar = ApplicationView.GetForCurrentView().TitleBar;
             titleBar.BackgroundColor = Windows.UI.Colors.DarkRed;*/
+            //ContentFrame.Navigate(typeof(MainPage));
             
         }
 
@@ -54,9 +56,11 @@ namespace UWP
                         NavView.Header = "User";
                         break;
                     case "photos":
+                        ContentFrame.Navigate(typeof(PhotosScreen));
                         NavView.Header = "Photos";
                         break;
                     case "shared":
+                        ContentFrame.Navigate(typeof(SharedScreen));
                         NavView.Header = "Shared";
                         break;
                     case "login":
@@ -92,5 +96,13 @@ namespace UWP
                 this.NavView.Header = "Operation cancelled.";
             }
         }
+
+        private void logOut_Click(object sender, RoutedEventArgs e)
+        {
+            Dialogs logout = new Dialogs();
+            logout.DisplayLogoutDialog(Frame);
+        }
+
+       
     }
 }
