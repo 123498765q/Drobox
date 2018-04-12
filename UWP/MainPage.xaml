@@ -9,11 +9,11 @@
 
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-            <TextBlock Text="HOME"
+        <TextBlock Text="HOME"
                    FontSize="70"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Center"/>
-        </Grid>
+    </Grid>
 
-    
+
 </Page>
