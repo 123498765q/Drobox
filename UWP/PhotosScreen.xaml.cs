@@ -31,7 +31,9 @@ namespace UWP
         public PhotosScreen()
         {
             this.InitializeComponent();
-            
+            komentaras.Visibility = Visibility.Collapsed;
+            Save.Visibility = Visibility.Collapsed;
+
         }
 
        
@@ -52,8 +54,13 @@ namespace UWP
 
                 }
               
+
                 CapturePhoto.Source = bitmapImage;
-                
+                komentaras.Visibility = Visibility.Visible;
+                Save.Visibility = Visibility.Visible;
+                 
+
+
             }
             else
             {
