@@ -39,7 +39,7 @@ namespace UWP
         {
 
             this.InitializeComponent();
-           
+            Ring.IsActive = false;
 
         }
        
@@ -129,8 +129,8 @@ namespace UWP
 
         async void performCodeExchangeAsync(string code, string code_verifier)
         {
-       
 
+            Ring.IsActive = true;
             string tokenRequestBody = string.Format(
                 "code={0}&redirect_uri={1}&client_id={2}&code_verifier={3}&scope=&grant_type=authorization_code",
                 code,
@@ -171,6 +171,8 @@ namespace UWP
            
             UserInfo userInfo = Str2UserInfo(userinfoResponseContent);
             Util.PostUser(userInfo);
+
+          
 
             
             if (userinfoResponseContent != null)
