@@ -33,13 +33,14 @@ namespace UWP
         const string tokenEndpoint = "https://www.googleapis.com/oauth2/v4/token";
         const string userInfoEndpoint = "https://www.googleapis.com/oauth2/v3/userinfo";
         private string authorizationRequest;
-     
+        ProgressRing progress;
+
         public Login()
         {
 
             this.InitializeComponent();
-         
-     
+            Ring.IsActive = false;
+
         }
        
         private void Login_btn_OnClick(object sender, RoutedEventArgs e)
@@ -64,15 +65,19 @@ namespace UWP
             //output("Opening authorization request URI: " + authorizationRequest);
         
             var success = Windows.System.Launcher.LaunchUriAsync(new Uri(authorizationRequest));
+          
+           
+            
 
-  
 
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            
             if (e.Parameter is Uri)
             {
+              
                 Uri authorizationResponse = (Uri)e.Parameter;
                 string queryString = authorizationResponse.Query;
                 //output("MainPage received authorizationResponse: " + authorizationResponse);
@@ -124,8 +129,8 @@ namespace UWP
 
         async void performCodeExchangeAsync(string code, string code_verifier)
         {
-       
 
+            Ring.IsActive = true;
             string tokenRequestBody = string.Format(
                 "code={0}&redirect_uri={1}&client_id={2}&code_verifier={3}&scope=&grant_type=authorization_code",
                 code,
@@ -166,7 +171,10 @@ namespace UWP
            
             UserInfo userInfo = Str2UserInfo(userinfoResponseContent);
             Util.PostUser(userInfo);
-        
+
+          
+
+            
             if (userinfoResponseContent != null)
             {
 
@@ -179,6 +187,7 @@ namespace UWP
                 App.gender = userInfo.gender;
                 App.locale = userInfo.locale;
                 this.Frame.Navigate(typeof(MainScreen));
+
             }
         }
 
