@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using Windows.ApplicationModel;
@@ -19,8 +21,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
-
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
+using UWP.Classes;
 
 namespace UWP
 {
@@ -152,5 +153,10 @@ namespace UWP
             await Launcher.LaunchFolderAsync(folder);
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            string[] filePaths = {@"C:\Users\Mykolas\Desktop\files\bg5.jpg", @"C:\Users\Mykolas\Desktop\files\bg2.jpg" };
+            Util.AddFile(filePaths);
+        }
     }
 }
