@@ -186,6 +186,11 @@
       <Version>2.2.0</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EASendMailRT">
+      <HintPath>..\..\..\..\.nuget\packages\easendmail\7.3.1.9\lib\uap10.0\EASendMailRT.winmd</HintPath>
+    </Reference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
