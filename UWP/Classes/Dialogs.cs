@@ -31,5 +31,27 @@ namespace UWP.Classes
             }
         }
 
+        public async void ExitCamera()
+        {
+            ContentDialog ExitCamera = new ContentDialog
+            {
+                Title = "Close camera",
+                Content = "Are you sure want to close camera?",
+                PrimaryButtonText = "Yes",
+                CloseButtonText = "No"
+            };
+
+            ContentDialogResult result = await ExitCamera.ShowAsync();
+
+            if (result == ContentDialogResult.Primary)
+            {
+                
+            }
+            else
+            {
+
+            }
+        }
+
     }
 }
