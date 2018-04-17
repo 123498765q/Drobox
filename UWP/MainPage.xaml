@@ -8,12 +8,27 @@
     mc:Ignorable="d">
 
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock Text="HOME"
-                   FontSize="70"
-                   VerticalAlignment="Center"
-                   HorizontalAlignment="Center"/>
-    </Grid>
+    <ScrollViewer>
+        <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+            <SplitView IsPaneOpen="True"
+           DisplayMode="Inline"
+           OpenPaneLength="120">
+                <SplitView.Pane>
+                    
+                        <RelativePanel x:Name="RP">
+                        
+                        </RelativePanel>
+                    
+                </SplitView.Pane>
 
+                <Grid>
+                    <RelativePanel x:Name="CP">
+
+                    </RelativePanel>
+                </Grid>
+            </SplitView>
+            
+        </Grid>
+    </ScrollViewer>
 
 </Page>

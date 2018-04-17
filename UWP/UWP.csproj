@@ -128,6 +128,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\btn_google_sign-in.png" />
+    <Content Include="Assets\folder.png" />
     <Content Include="Assets\ikona.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />

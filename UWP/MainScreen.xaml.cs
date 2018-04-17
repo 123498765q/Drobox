@@ -103,6 +103,14 @@ namespace UWP
             logout.DisplayLogoutDialog(Frame);
         }
 
-       
+
+        private void takePhoto_Click(object sender, RoutedEventArgs e)
+        {
+            ContentFrame.Navigate(typeof(PhotosScreen));
+            PhotosScreen ps = new PhotosScreen();
+            this.NavView.Header = "Add photo";
+            //ps.makePhoto();
+        }
+
     }
 }

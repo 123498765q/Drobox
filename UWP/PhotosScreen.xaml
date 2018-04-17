@@ -7,12 +7,16 @@
     xmlns:Custom="using:Microsoft.Toolkit.Uwp.UI.Controls"
     x:Class="UWP.PhotosScreen"
     mc:Ignorable="d">
-
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Button x:Name="Photo" Content="New Photo" HorizontalAlignment="Left" Margin="601,57,0,0" VerticalAlignment="Top" Click="Photo_Click"/>
-        <Image x:Name="CapturePhoto" HorizontalAlignment="Left" Height="500"  Margin="15,100,0,0" VerticalAlignment="Top" Width="500"/>
-        <Button x:Name="Save" Content="Save Photo" HorizontalAlignment="Left" Margin="730,57,0,0" VerticalAlignment="Top" Click="Button_Click"/>
-        <TextBox x:Name="komentaras" Header="Commentary" PlaceholderText="Insert your commentary here" HorizontalAlignment="Left" Margin="600,115,0,0" Text="" VerticalAlignment="Top" Height="120" Width="370"/>
-       
-    </Grid>
+    <ScrollViewer>
+        <Grid   Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+            <Grid Margin="30, 30, 0, 40">
+                <!--<Button x:Name="Photo" Content="New Photo" Margin="30,370,30,0" Click="Photo_Click"/>
+                <Button x:Name="Save" Content="Save Photo"  Margin="150,370,30,0"  Click="Button_Click"/>-->
+                <Button x:Name="Photo" Content="New Photo" HorizontalAlignment="Center" Margin="-80,370,30,0" Click="Photo_Click"/>
+                <Button x:Name="Save" Content="Save Photo" HorizontalAlignment="Center" Margin="130,370,30,0"  Click="Button_Click"/>
+                <Image x:Name="CapturePhoto"  Height="300"  Margin="-80,-200,30,20"  Width="300"/>
+                <TextBox x:Name="komentaras"  Header="Commentary" PlaceholderText="Insert your commentary here"  Margin="-80,200,30,0" Text=""  Height="120" Width="300"/>
+            </Grid>
+        </Grid>
+    </ScrollViewer>
 </Page>
