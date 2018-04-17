@@ -89,20 +89,21 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
-    <Content Include="GoogleLogin\index.html" />
-    <Content Include="GoogleLogin\script.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Classes\CreateFolder.cs" />
+    <Compile Include="Controllers\DocumentUploadController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="DataAccess\DataContext.cs" />
     <Compile Include="DataAccess\DbInit.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\InMemoryMultipartFormDataStreamProvider.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\UserViewModel.cs" />
@@ -118,6 +119,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="UsersData\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

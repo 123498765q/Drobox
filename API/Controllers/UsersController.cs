@@ -8,6 +8,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
+using API.Classes;
 using API.DataAccess;
 using API.Models;
 
@@ -56,6 +57,7 @@ namespace API.Controllers
             {
                 db.SaveChanges();
             }
+
             catch (DbUpdateConcurrencyException)
             {
                 if (!UserExists(id))
@@ -83,6 +85,7 @@ namespace API.Controllers
             }
 
             db.Users.Add(user);
+            CreateFolder.CreateUserFolder(user.sub, user.given_name);
 
             try
             {
