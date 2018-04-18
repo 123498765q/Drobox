@@ -24,12 +24,19 @@ namespace UWP
     /// </summary>
     public sealed partial class UserScreen : Page
     {
+        static int maxVieta = 3000;
+       
         public UserScreen()
         {
-            this.InitializeComponent();     
+            this.InitializeComponent();
+
+            /*long length = Directory.GetFiles(@"C:\Users\ASUS-pc\Downloads", "*", SearchOption.AllDirectories).Sum(t => (new FileInfo(t).Length));
+            double s = (length / 1024f) / 1024f;
+            double skaiciavimai = (s * 100 / maxVieta);
+            RadialProgressBarControl.Value = Convert.ToInt32(skaiciavimai);*/
             profilePicture.Source = new BitmapImage(new Uri(App.picture));
             Name.Text = App.name;
-            FirstName.Text = App.given_name;
+            FirstNameInfo.Text = App.given_name;
             LastName.Text = App.family_name;
             if (App.gender != null)
             {
@@ -48,8 +55,8 @@ namespace UWP
                 Location.Text = "unknown";
             }
             Id.Text = App.sub;
-           
+
         }
-       
+
     }
 }

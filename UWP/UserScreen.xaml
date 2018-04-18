@@ -9,7 +9,7 @@
     mc:Ignorable="d">
     <Grid Margin="-13,-1,13,1">
         <ScrollViewer>
-            <StackPanel Margin="150, 20, 100, 20">
+            <StackPanel Margin="180, 20, 130, 20">
                 <Grid Height="Auto" Margin="0,0,0,0" Width="Auto">
                     <Image x:Name="profilePicture" Width="70" Height="70" Source="Assets/ikona.jpg"  Margin="25,25,25,25"/>
                     <controls:RadialProgressBar x:Name="RadialProgressBarControl"
@@ -24,23 +24,23 @@
                 Foreground="Orange"
                 Background="Transparent" Padding="50, 50, 50, 50"/>
                 </Grid>
-                <TextBlock x:Name="Name" Margin="0, 20, 0, 0" Text="First Name" TextWrapping="Wrap" TextAlignment="Center"  FontFamily="Agency FB" FontSize="24" FontWeight="Bold"/>
+                <TextBlock x:Name="Name"  Padding="0, 0, 0, 10" Margin="0, 20, 0, 0" Text="First Name" TextWrapping="Wrap" TextAlignment="Center"  FontFamily="Agency FB" FontSize="24" FontWeight="Bold"/>
 
-                <Rectangle x:Name="Line1" Width="2000" Height="1" Fill="Gray"  />
-                <TextBlock x:Name="FirstName" HorizontalAlignment="Left"  Text="Name" TextWrapping="Wrap" VerticalAlignment="Top"/>
-                <TextBlock x:Name="FirstNameInfo" Margin="0, -20, 10, 0" HorizontalAlignment="Right"  Text="UserName" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <!--<Rectangle x:Name="Line1" Width="2000" Height="1" Fill="Gray"  />-->
+                <TextBlock x:Name="FirstName" Padding="0, 10, 0, 0" HorizontalAlignment="Left"  Text="Name" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock x:Name="FirstNameInfo"  Margin="0, -20, 10, 0" HorizontalAlignment="Right"  Text="UserName" TextWrapping="Wrap" VerticalAlignment="Top"/>
 
-                <Rectangle x:Name="Line1_Copy" Width="2000" Height="1" Fill="Gray"  />
-                <TextBlock x:Name="LastNameInfo" HorizontalAlignment="Left"  Text="Last Name" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <!--<Rectangle x:Name="Line1_Copy" Width="2000" Height="1" Fill="Gray"  />-->
+                <TextBlock x:Name="LastNameInfo" Padding="0, 10, 0, 0" HorizontalAlignment="Left"  Text="Last Name" TextWrapping="Wrap" VerticalAlignment="Top"/>
                 <TextBlock x:Name="LastName" Margin="0, -20, 10, 0" HorizontalAlignment="Right" Text="Last Name" TextWrapping="Wrap" VerticalAlignment="Top"/>
-                <Rectangle x:Name="Line2_Copy" Width="2000" Height="1" Fill="Gray"  />
-                <TextBlock x:Name="GenderNameInfo" HorizontalAlignment="Left"  Text="Gender" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <!--<Rectangle x:Name="Line2_Copy" Width="2000" Height="1" Fill="Gray"  />-->
+                <TextBlock x:Name="GenderNameInfo" Padding="0, 10, 0, 0" HorizontalAlignment="Left"  Text="Gender" TextWrapping="Wrap" VerticalAlignment="Top"/>
                 <TextBlock x:Name="Gender" Margin="0, -20, 10, 0" HorizontalAlignment="Right" Text="GenderType" TextWrapping="Wrap" VerticalAlignment="Top"/>
-                <Rectangle x:Name="Line1_Copy2" Width="2000" Height="1" Fill="Gray"  />
-                <TextBlock x:Name="LocaleInfo" HorizontalAlignment="Left" Text="Location" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <!--<Rectangle x:Name="Line1_Copy2" Width="2000" Height="1" Fill="Gray"  />-->
+                <TextBlock x:Name="LocaleInfo" Padding="0, 10, 0, 0" HorizontalAlignment="Left" Text="Location" TextWrapping="Wrap" VerticalAlignment="Top"/>
                 <TextBlock x:Name="Location" Margin="0, -20, 10, 0" HorizontalAlignment="Right" Text="Location" TextWrapping="Wrap" VerticalAlignment="Top"/>
-                <Rectangle x:Name="Line3_Copy" Width="2000" Height="1" Fill="Gray"  />
-                <TextBlock x:Name="IdInfo" HorizontalAlignment="Left" Text="User Id" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <!--<Rectangle x:Name="Line3_Copy" Width="2000" Height="1" Fill="Gray"  />-->
+                <TextBlock x:Name="IdInfo" Padding="0, 10, 0, 0" HorizontalAlignment="Left" Text="User Id" TextWrapping="Wrap" VerticalAlignment="Top"/>
                 <TextBlock x:Name="Id" Margin="0, -20, 10, 0" HorizontalAlignment="Right"  Text="id" TextWrapping="Wrap" VerticalAlignment="Top"/>
             </StackPanel>
         </ScrollViewer>

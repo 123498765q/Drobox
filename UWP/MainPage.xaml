@@ -8,14 +8,31 @@
     mc:Ignorable="d">
 
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock Text="HOME"
-                   FontSize="70"
-                   VerticalAlignment="Center"
-                   HorizontalAlignment="Center"/>
-        <Button Content="Add files" HorizontalAlignment="Left" Margin="101,38,0,0" VerticalAlignment="Top" Click="Button_Click" RenderTransformOrigin="0.5,0.5" Height="117" UseLayoutRounding="False" d:LayoutRounding="Auto" Width="194"/>
-        <Button Content="Share" HorizontalAlignment="Left" Margin="101,220,0,0" VerticalAlignment="Top" Height="109" Click="Button_Click_1" Width="165"/>
-    </Grid>
+    <ScrollViewer>
+        <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+            <SplitView IsPaneOpen="True"
+           DisplayMode="Inline"
+           OpenPaneLength="120">
+                <SplitView.Pane>
+                    
+                        <RelativePanel x:Name="RP">
+                        
+                        </RelativePanel>
+                    
+                </SplitView.Pane>
 
+                <Grid>
+                    <RelativePanel x:Name="CP">
+
+                    </RelativePanel>
+                </Grid>
+            </SplitView>
+            <Button Content="Button" HorizontalAlignment="Left" Margin="588,273,0,0" VerticalAlignment="Top" Click="Button_Click" RenderTransformOrigin="0.5,0.5" Height="117" UseLayoutRounding="False" Width="194" d:LayoutRounding="Auto">
+            <Button.RenderTransform>
+                <CompositeTransform Rotation="-29.93"/>
+            </Button.RenderTransform>
+        </Button>
+        </Grid>
+    </ScrollViewer>
 
 </Page>

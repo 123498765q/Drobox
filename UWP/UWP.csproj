@@ -129,6 +129,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\btn_google_sign-in.png" />
+    <Content Include="Assets\folder.png" />
     <Content Include="Assets\ikona.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
@@ -189,6 +190,11 @@
     <PackageReference Include="RestSharp">
       <Version>106.2.1</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="EASendMailRT">
+      <HintPath>..\..\..\..\.nuget\packages\easendmail\7.3.1.9\lib\uap10.0\EASendMailRT.winmd</HintPath>
+    </Reference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
