@@ -10,6 +10,7 @@ using System.Web;
 using System.Web.Configuration;
 using System.Web.Http;
 using System.Web.Http.Description;
+using API.Classes;
 using API.Models;
 
 namespace API.Controllers
@@ -72,8 +73,7 @@ namespace API.Controllers
             return response;
         }
 
-        // DELETE: api/Users/5
-        [HttpPost]
+        [HttpDelete]
         [Route("api/deletefile")]
         public IHttpActionResult DeleteFile([FromBody] string filePath)
         {
@@ -83,6 +83,23 @@ namespace API.Controllers
                 return Ok("OK");
             }
             return Ok("NO_FILE");
+        }
+
+        [HttpPost]
+        [Route("api/sharefiles")]
+        public IHttpActionResult ShareFiles(SharedFilesData data)
+        {
+            foreach (var file in data.Files)
+            {
+                if (!File.Exists(file))
+                {
+                    return Ok("FATAL_ERROR");
+                }
+            }
+            
+            ManageFiles.CreateUserFolderGuid(data.sub, data.Files);
+
+            return Ok("OK");
         }
     }
 }

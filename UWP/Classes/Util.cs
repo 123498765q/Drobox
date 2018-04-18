@@ -34,6 +34,24 @@ namespace UWP.Classes
             }
         }
 
+        public static void ShareFiles(UserInfo userInfo)
+        {
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    client.BaseAddress = new Uri(BaseUri);
+                    var response = client.PostAsJsonAsync("api/add-user", userInfo).Result;
+                    if (response.IsSuccessStatusCode)
+                    {
+                    }
+                }
+            }
+            catch
+            {
+            }
+        }
+
         public static void AddFile(string[] selectedFilePaths)
         {
             string userFilePath = App.sub + @"/" + App.given_name;

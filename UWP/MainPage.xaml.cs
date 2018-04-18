@@ -34,8 +34,13 @@ namespace UWP
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            string[] filePaths = {@"C:\Users\Mykolas\Desktop\files\bg5.jpg", @"C:\Users\Mykolas\Desktop\files\bg2.jpg" };
+            string[] filePaths = { @"C:\Users\Mykolas\Desktop\files\bg5.jpg", @"C:\Users\Mykolas\Desktop\files\bg2.jpg" };
             Util.AddFile(filePaths);
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            string[] filePaths = { @"C:\Users\Mykolas\Desktop\files\bg5.jpg", @"C:\Users\Mykolas\Desktop\files\bg2.jpg" };
         }
     }
 }
