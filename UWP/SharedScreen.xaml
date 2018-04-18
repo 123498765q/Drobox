@@ -5,12 +5,35 @@
     xmlns:local="using:UWP"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:classes="using:UWP.Classes"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock Text="SHARED"
-                   FontSize="70"
-                   VerticalAlignment="Center"
-                   HorizontalAlignment="Center"/>
+    <Page.Resources>
+        <DataTemplate x:Key="BookListDataTemplate" x:DataType="classes:Files">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                <Image Name="image" Source="{x:Bind TypeImage}" HorizontalAlignment="Center" Width="150" />
+                <StackPanel Margin="20,20,0,0">
+                    <TextBlock Text="{x:Bind FileName}" HorizontalAlignment="Left" FontSize="18" />
+                </StackPanel>
+            </StackPanel>
+        </DataTemplate>
+    </Page.Resources>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="0,20,20,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="100" />
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="1" 
+                   Name="ResultTextBlock" 
+                   FontSize="24" 
+                   Foreground="Red" 
+                   FontWeight="Bold" 
+                   Margin="20,20,0,0" />
+        <ListView ItemsSource="{x:Bind Books}"
+                ItemClick="ListView_ItemClick" 
+                  SelectionMode="Multiple"
+                  IsItemClickEnabled="True" 
+                  ItemTemplate="{StaticResource BookListDataTemplate}">
+        </ListView>
     </Grid>
 </Page>

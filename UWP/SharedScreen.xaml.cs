@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using UWP.Classes;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -22,9 +23,18 @@ namespace UWP
     /// </summary>
     public sealed partial class SharedScreen : Page
     {
+        private List<Files> Books;
+
         public SharedScreen()
         {
             this.InitializeComponent();
+            Books = BookManager.GetBooks();
+        }
+
+        private void ListView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var book = (Files)e.ClickedItem;
+            ResultTextBlock.Text = "You Selected: " + book.Title;
         }
     }
 }
