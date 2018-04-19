@@ -74,7 +74,7 @@ namespace API.Controllers
         }
 
         [HttpDelete]
-        [Route("api/deletefile")]
+        [Route("api/delete-file")]
         public IHttpActionResult DeleteFile([FromBody] string filePath)
         {
             if (File.Exists(filePath))
@@ -86,7 +86,7 @@ namespace API.Controllers
         }
 
         [HttpPost]
-        [Route("api/sharefiles")]
+        [Route("api/share-files")]
         public IHttpActionResult ShareFiles(SharedFilesData data)
         {
             foreach (var file in data.Files)
@@ -100,6 +100,15 @@ namespace API.Controllers
             ManageFiles.CreateUserFolderGuid(data.sub, data.Files);
 
             return Ok("OK");
+        }
+
+        [HttpGet]
+        [Route("api/get-files/{userId}/{userName}")]
+        public IHttpActionResult GetFiles(string userId, string userName)
+        {
+            string path = @"C:\Users\Mykolas\Documents\Repos\Drobox\API\UsersData\" + userId + @"\" + userName;
+            var files = Directory.GetFiles(path, "*.*", SearchOption.AllDirectories);
+            return Ok(files);
         }
     }
 }

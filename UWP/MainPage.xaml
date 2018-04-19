@@ -9,15 +9,20 @@
     mc:Ignorable="d">
 
     <Page.Resources>
-        <DataTemplate x:Key="BookListDataTemplate" x:DataType="classes:Files">
+        <DataTemplate x:Key="BookListDataTemplate" x:DataType="classes:File">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                <Image Name="image" Source="{x:Bind TypeImage}" HorizontalAlignment="Center" Width="150" />
-                <StackPanel Margin="20,20,0,0">
-                    <TextBlock Text="{x:Bind FileName}" HorizontalAlignment="Left" FontSize="18" />
+                <Image Source="{x:Bind TypeImage}" HorizontalAlignment="Center" Width="50" />
+                <TextBlock Text="{x:Bind FileName}" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" Margin="20, 0, 0, 0"/>
+                <Button x:Name="ShareBtn" Height="30" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Padding="0" Margin="20, 0, 20, 0" Click="ShareBtn_OnClick">
+                    <Image Source="Assets/share.png" Stretch="UniformToFill" Margin="2, 2, 2, 2" />
+                </Button>
+                <Button x:Name="DelBtn" Height="30" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Padding="0" Margin="20, 0, 20, 0" Click="DelBtn_OnClick">
+                    <Image Source="Assets/delete.png" Stretch="UniformToFill" Margin="5, 5, 5, 5" />
+                </Button>
                 </StackPanel>
-            </StackPanel>
         </DataTemplate>
     </Page.Resources>
+
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="0,20,20,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
@@ -29,9 +34,8 @@
                    Foreground="Red" 
                    FontWeight="Bold" 
                    Margin="20,20,0,0" />
-        <ListView ItemsSource="{x:Bind Files}"
+        <ListView ItemsSource="{x:Bind files}"
                   ItemClick="ListView_ItemClick" 
-                  SelectionMode="Multiple"
                   IsItemClickEnabled="True" 
                   ItemTemplate="{StaticResource BookListDataTemplate}">
         </ListView>
