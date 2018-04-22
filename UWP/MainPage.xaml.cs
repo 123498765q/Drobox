@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using UWP.Classes;
@@ -14,34 +16,19 @@ namespace UWP
         public MainPage()
         {
             this.InitializeComponent();
-            var a = Util.GetFileList();
-            File f = new File
-            {
-                TypeImage = DesignUtils.SelectExtentionImage("png"),
-                FileName = "AZSDASDASD",
-                FilePath = "filePath",
-                FileType = "fileType",
-                Coordinates = "coordinates",
-                Content = "content"
-        };
+
             files = new List<File>();
-            files.Add(f);
-            
-        }
-
-        private List<File> GetAllFiles()
-        {
-            string userPath = App.BaseUrl + App.sub + "/" + App.given_name;
-
-            string[] filePaths = Directory.GetFiles(@":\Users\Mykolas\Desktop\", "*.txt", SearchOption.TopDirectoryOnly);
-
-            return null;
+            InitListAsync(); // cia reikia sita suda padaryt async kazkaip
         }
 
         private void ListView_ItemClick(object sender, ItemClickEventArgs e)
         {
             var file = (File)e.ClickedItem;
-            ResultTextBlock.Text = "You Selected: ";
+            if (file.FileType == "folder")
+            {
+                
+            }
+            System.Diagnostics.Process.Start(file.FilePath);
         }
 
         private void ShareBtn_OnClick(object sender, RoutedEventArgs e)
@@ -52,7 +39,38 @@ namespace UWP
 
         private void DelBtn_OnClick(object sender, RoutedEventArgs e)
         {
-            
+        }
+
+        private async Task InitListAsync()
+        {
+            try
+            {
+                var paths = await Util.GetFileList();
+                foreach (var p in paths)
+                {
+                    var fileName = p.Split(App.given_name + "\\")[1];
+                    if (fileName.Contains('.'))
+                    {
+                        fileName = fileName.Split('.')[1];
+                    }
+
+                    File f = new File
+                    {
+                        Content = "",
+                        Coordinates = "",
+                        FileName = fileName,
+                        TypeImage = DesignUtils.SelectExtentionImage(fileName),
+                        FilePath = p,
+                        FileType = DesignUtils.SetFileType(fileName)
+                    };
+                    files.Add(f);
+                }
+            }
+
+            catch
+            {
+                // ignored
+            }
         }
     }
 }

@@ -103,12 +103,14 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        [Route("api/get-files/{userId}/{userName}")]
-        public IHttpActionResult GetFiles(string userId, string userName)
+        [Route("api/get-files/{userId}/{folderName}")]
+        public IHttpActionResult GetFiles(string userId, string folderName)
         {
-            string path = @"C:\Users\Mykolas\Documents\Repos\Drobox\API\UsersData\" + userId + @"\" + userName;
-            var files = Directory.GetFiles(path, "*.*", SearchOption.AllDirectories);
-            return Ok(files);
+            string path = @"C:\Users\Mykolas\Documents\Repos\Drobox\API\UsersData\" + userId + @"\" + folderName;
+            var files = Directory.GetFiles(path, "*.*", SearchOption.TopDirectoryOnly);
+            var dirs = Directory.GetDirectories(path);
+            var full = files.Concat(dirs).ToArray();
+            return Ok(full);
         }
     }
 }

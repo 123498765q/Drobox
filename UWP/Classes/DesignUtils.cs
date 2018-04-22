@@ -34,7 +34,27 @@ namespace UWP.Classes
                 case "rar":
                     return "Assets/FileTypeImg/doc.png";
             }
-            return "Assets/FileTypeImg/file.png";
+            return "Assets/FileTypeImg/folder.png";
+        }
+
+        public static string SetFileType(string fileExtention)
+        {
+            switch (fileExtention)
+            {
+                case "png":
+                case "doc":
+                case "exe":
+                case "jpg":
+                case "mp3":
+                case "mp4":
+                case "pdf":
+                case "txt":
+                case "xls":
+                case "zip":
+                case "rar":
+                    return fileExtention;
+            }
+            return "folder";
         }
     }
 }

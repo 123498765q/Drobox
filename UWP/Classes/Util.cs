@@ -35,8 +35,7 @@ namespace UWP.Classes
         }
 
         public static void ShareFiles(UserInfo userInfo)
-        {
-            
+        {  
         }
 
         public static void AddFile(string[] selectedFilePaths)
@@ -83,20 +82,17 @@ namespace UWP.Classes
 
         public static async Task<string[]> GetFileList()
         {
-            string apiUri = BaseUri + "/" + App.sub + "/" + App.given_name;
             try
             {
                 using (var client = new HttpClient())
                 {
                     client.BaseAddress = new Uri(BaseUri);
                     HttpResponseMessage response = await client.GetAsync("api/get-files/" + App.sub + "/" + App.given_name);
-                    string[] paths = null;
                     if (response.IsSuccessStatusCode)
                     {
-                        paths = await response.Content.ReadAsAsync<string[]>();
+                        var paths = await response.Content.ReadAsAsync<string[]>();
+                        return paths;
                     }
-
-                    return paths;
                 }
             }
             catch
