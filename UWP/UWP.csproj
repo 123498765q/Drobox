@@ -99,6 +99,8 @@
     <Compile Include="Classes\DesignUtils.cs" />
     <Compile Include="Classes\File.cs" />
     <Compile Include="Classes\Dialogs.cs" />
+    <Compile Include="Classes\GPS.cs" />
+    <Compile Include="Classes\IpInfo.cs" />
     <Compile Include="Classes\UserInfo.cs" />
     <Compile Include="Classes\Util.cs" />
     <Compile Include="Login.xaml.cs">

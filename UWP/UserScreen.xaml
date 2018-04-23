@@ -40,8 +40,7 @@
                 <TextBlock x:Name="LocaleInfo" Padding="0, 10, 0, 0" HorizontalAlignment="Left" Text="Location" TextWrapping="Wrap" VerticalAlignment="Top"/>
                 <TextBlock x:Name="Location" Margin="0, -20, 10, 0" HorizontalAlignment="Right" Text="Location" TextWrapping="Wrap" VerticalAlignment="Top"/>
                 <!--<Rectangle x:Name="Line3_Copy" Width="2000" Height="1" Fill="Gray"  />-->
-                <TextBlock x:Name="IdInfo" Padding="0, 10, 0, 0" HorizontalAlignment="Left" Text="User Id" TextWrapping="Wrap" VerticalAlignment="Top"/>
-                <TextBlock x:Name="Id" Margin="0, -20, 10, 0" HorizontalAlignment="Right"  Text="id" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                
             </StackPanel>
         </ScrollViewer>
     </Grid>

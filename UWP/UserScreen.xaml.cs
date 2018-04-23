@@ -29,11 +29,11 @@ namespace UWP
         public UserScreen()
         {
             this.InitializeComponent();
-
+            
             /*long length = Directory.GetFiles(@"C:\Users\ASUS-pc\Downloads", "*", SearchOption.AllDirectories).Sum(t => (new FileInfo(t).Length));
-            double s = (length / 1024f) / 1024f;
-            double skaiciavimai = (s * 100 / maxVieta);
-            RadialProgressBarControl.Value = Convert.ToInt32(skaiciavimai);*/
+           double s = (length / 1024f) / 1024f;
+           double skaiciavimai = (s * 100 / maxVieta);
+           RadialProgressBarControl.Value = Convert.ToInt32(skaiciavimai);*/
             profilePicture.Source = new BitmapImage(new Uri(App.picture));
             Name.Text = App.name;
             FirstNameInfo.Text = App.given_name;
@@ -44,17 +44,28 @@ namespace UWP
             }
             else
             {
-                Gender.Text = "unknown";
+                Gender.Text = "Unknown";
             }
             if (App.locale != null)
             {
-                Location.Text = App.locale;
+                
+                if (App.locale == "lt")
+                {
+                    Location.Text = "Lithuania";
+                }
+                else if (App.locale == "en")
+                {
+                    Location.Text = "England";
+                }
+                else
+                {
+                    Location.Text = App.locale;
+                }
             }
             else
             {
-                Location.Text = "unknown";
+                Location.Text = "Unknown";
             }
-            Id.Text = App.sub;
 
         }
 

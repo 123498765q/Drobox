@@ -10,7 +10,7 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <CommandBar Background="Transparent"  >
             <AppBarButton x:Name="addFile" Icon="Add" Label="Add file" Click="addFile_Click"/>
-            <AppBarButton x:Name="takePhoto" Icon="Camera" Label="Take photo" Click="takePhoto_Click"/>
+            <!--<AppBarButton x:Name="takePhoto" Icon="Camera" Label="Take photo" Click="takePhoto_Click"/>-->
             <AppBarButton x:Name="share" Icon="People" Label="Share" Click="share_click"/>
             <AppBarButton x:Name="logOut" Icon="ContactPresence" Label="Logout" Click="logOut_Click"/>
             
@@ -21,7 +21,7 @@
             <NavigationView.MenuItems>
                 <NavigationViewItem Icon="Home" Content="Home" Tag="home"/>
                 <NavigationViewItem Icon="Contact" Content="User" Tag="user"/>
-                <!--<NavigationViewItem Icon="Camera" Content="Photos" Tag="photos"/>-->
+                <NavigationViewItem Icon="Camera" Content="Photos" Tag="photos"/>
                 <NavigationViewItem Icon="Favorite" Content="Starred" Tag="starred"/>
                 <NavigationViewItem Icon="People" Content="Shared" Tag="shared"/>
             </NavigationView.MenuItems>
