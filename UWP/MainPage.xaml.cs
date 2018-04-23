@@ -12,13 +12,12 @@ namespace UWP
 {
     public sealed partial class MainPage : Page
     {
-        private List<File> files;
+        
         public MainPage()
         {
             this.InitializeComponent();
-
-            files = new List<File>();
-            InitListAsync(); // cia reikia sita suda padaryt async kazkaip
+        
+             // cia reikia sita suda padaryt async kazkaip
         }
 
         private void ListView_ItemClick(object sender, ItemClickEventArgs e)
@@ -43,6 +42,39 @@ namespace UWP
 
         private async Task InitListAsync()
         {
+//            try
+//            {
+//                var paths = await Util.GetFileList();
+//                foreach (var p in paths)
+//                {
+//                    var fileName = p.Split(App.given_name + "\\")[1];
+//                    if (fileName.Contains('.'))
+//                    {
+//                        fileName = fileName.Split('.')[1];
+//                    }
+//
+//                    File f = new File
+//                    {
+//                        Content = "",
+//                        Coordinates = "",
+//                        FileName = fileName,
+//                        TypeImage = DesignUtils.SelectExtentionImage(fileName),
+//                        FilePath = p,
+//                        FileType = DesignUtils.SetFileType(fileName)
+//                    };
+//                    files.Add(f);
+//                }
+//            }
+//
+//            catch
+//            {
+//                // ignored
+//            }
+        }
+        
+        private async void Button_Click(object sender, RoutedEventArgs e)
+        {
+            List<File> files = new List<File>();
             try
             {
                 var paths = await Util.GetFileList();
@@ -65,6 +97,16 @@ namespace UWP
                     };
                     files.Add(f);
                 }
+                
+                string txt = "";
+                foreach (var t in files)
+                {
+                    ListViewItem item = new ListViewItem();
+                    
+                    list.Items.Add(files);
+                }
+
+                aaa.Text = txt;
             }
 
             catch

@@ -19,7 +19,7 @@
                 <Button x:Name="DelBtn" Height="30" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Padding="0" Margin="20, 0, 20, 0" Click="DelBtn_OnClick">
                     <Image Source="Assets/delete.png" Stretch="UniformToFill" Margin="5, 5, 5, 5" />
                 </Button>
-                </StackPanel>
+            </StackPanel>
         </DataTemplate>
     </Page.Resources>
 
@@ -34,10 +34,14 @@
                    Foreground="Red" 
                    FontWeight="Bold" 
                    Margin="20,20,0,0" />
-        <ListView ItemsSource="{x:Bind files}"
+        <ListView x:Name="list"
                   ItemClick="ListView_ItemClick" 
-                  IsItemClickEnabled="True" 
-                  ItemTemplate="{StaticResource BookListDataTemplate}">
-        </ListView>
+                  IsItemClickEnabled="True"/>
+        <Button x:Name="btnn" Content="Button" HorizontalAlignment="Left" Margin="822,293,0,-412" Grid.RowSpan="2" VerticalAlignment="Top" RenderTransformOrigin="0.615,0.781" Click="Button_Click" Height="119" UseLayoutRounding="False" Width="167" d:LayoutRounding="Auto">
+            <Button.RenderTransform>
+                <CompositeTransform Rotation="-7.574"/>
+            </Button.RenderTransform>
+        </Button>
+        <TextBlock x:Name="aaa" HorizontalAlignment="Left" Margin="563,440,0,-610" Grid.RowSpan="2" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Height="170" Width="237"/>
     </Grid>
 </Page>
