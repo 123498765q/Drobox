@@ -5,34 +5,39 @@
     xmlns:local="using:UWP"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:classes="using:UWP.Classes"
     mc:Ignorable="d">
 
+    <Page.Resources>
+        <DataTemplate x:Key="BookListDataTemplate" x:DataType="classes:File">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                <Image Source="{x:Bind TypeImage}" HorizontalAlignment="Center" Width="50" />
+                <TextBlock Text="{x:Bind FileName}" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" Margin="20, 0, 0, 0"/>
+                <Button x:Name="ShareBtn" Height="30" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Padding="0" Margin="20, 0, 20, 0" Click="ShareBtn_OnClick">
+                    <Image Source="Assets/share.png" Stretch="UniformToFill" Margin="2, 2, 2, 2" />
+                </Button>
+                <Button x:Name="DelBtn" Height="30" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Padding="0" Margin="20, 0, 20, 0" Click="DelBtn_OnClick">
+                    <Image Source="Assets/delete.png" Stretch="UniformToFill" Margin="5, 5, 5, 5" />
+                </Button>
+                </StackPanel>
+        </DataTemplate>
+    </Page.Resources>
 
-    <ScrollViewer>
-        <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-            <SplitView IsPaneOpen="True"
-           DisplayMode="Inline"
-           OpenPaneLength="120">
-                <SplitView.Pane>
-                    
-                        <RelativePanel x:Name="RP">
-                        
-                        </RelativePanel>
-                    
-                </SplitView.Pane>
-
-                <Grid>
-                    <RelativePanel x:Name="CP">
-
-                    </RelativePanel>
-                </Grid>
-            </SplitView>
-            <Button Content="Button" HorizontalAlignment="Left" Margin="588,273,0,0" VerticalAlignment="Top" Click="Button_Click" RenderTransformOrigin="0.5,0.5" Height="117" UseLayoutRounding="False" Width="194" d:LayoutRounding="Auto">
-            <Button.RenderTransform>
-                <CompositeTransform Rotation="-29.93"/>
-            </Button.RenderTransform>
-        </Button>
-        </Grid>
-    </ScrollViewer>
-
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="0,20,20,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="100" />
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="1" 
+                   Name="ResultTextBlock" 
+                   FontSize="24" 
+                   Foreground="Red" 
+                   FontWeight="Bold" 
+                   Margin="20,20,0,0" />
+        <ListView ItemsSource="{x:Bind files}"
+                  ItemClick="ListView_ItemClick" 
+                  IsItemClickEnabled="True" 
+                  ItemTemplate="{StaticResource BookListDataTemplate}">
+        </ListView>
+    </Grid>
 </Page>

@@ -34,6 +34,10 @@ namespace UWP.Classes
             }
         }
 
+        public static void ShareFiles(UserInfo userInfo)
+        {  
+        }
+
         public static void AddFile(string[] selectedFilePaths)
         {
             string userFilePath = App.sub + @"/" + App.given_name;
@@ -44,7 +48,7 @@ namespace UWP.Classes
 
                 foreach (string selectedFilePath in selectedFilePaths)
                 {
-                    var fileStream = File.Open(selectedFilePath, FileMode.Open);
+                    var fileStream = System.IO.File.Open(selectedFilePath, FileMode.Open);
                     var fileInfo = new FileInfo(selectedFilePath);
 
                     var content = new MultipartFormDataContent();
@@ -60,15 +64,6 @@ namespace UWP.Classes
 
                             if (response.IsSuccessStatusCode)
                             {
-                                foreach (var header in response.Content.Headers)
-                                {
-                                    Debug.WriteLine("{0}: {1}", header.Key, string.Join(",", header.Value));
-                                }
-                            }
-                            else
-                            {
-                                Debug.WriteLine("Status Code: {0} - {1}", response.StatusCode, response.ReasonPhrase);
-                                Debug.WriteLine("Response Body: {0}", response.Content.ReadAsStringAsync().Result);
                             }
                         }
 
@@ -83,6 +78,28 @@ namespace UWP.Classes
             catch (Exception ex)
             {
             }
+        }
+
+        public static async Task<string[]> GetFileList()
+        {
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    client.BaseAddress = new Uri(BaseUri);
+                    HttpResponseMessage response = await client.GetAsync("api/get-files/" + App.sub + "/" + App.given_name);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var paths = await response.Content.ReadAsAsync<string[]>();
+                        return paths;
+                    }
+                }
+            }
+            catch
+            {
+            }
+
+            return null;
         }
     }
 }

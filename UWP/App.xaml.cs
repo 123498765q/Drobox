@@ -24,6 +24,7 @@ namespace UWP
     /// </summary>
     sealed partial class App : Application
     {
+        public static string BaseUrl { get; private set; } = "http://localhost:57769/";
         public static string sub { get; set; }
         public static string name { get; set; }
         public static string given_name { get; set; }

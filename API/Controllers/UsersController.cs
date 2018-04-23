@@ -85,7 +85,7 @@ namespace API.Controllers
             }
 
             db.Users.Add(user);
-            CreateFolder.CreateUserFolder(user.sub, user.given_name);
+            ManageFiles.CreateUserFolder(user.sub, user.given_name);
 
             try
             {

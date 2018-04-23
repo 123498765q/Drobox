@@ -96,6 +96,8 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Classes\DesignUtils.cs" />
+    <Compile Include="Classes\File.cs" />
     <Compile Include="Classes\Dialogs.cs" />
     <Compile Include="Classes\GPS.cs" />
     <Compile Include="Classes\IpInfo.cs" />
@@ -131,7 +133,22 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\btn_google_sign-in.png" />
+    <Content Include="Assets\delete.png" />
+    <Content Include="Assets\FileTypeImg\doc.png" />
+    <Content Include="Assets\FileTypeImg\exe.png" />
+    <Content Include="Assets\FileTypeImg\file.png" />
+    <Content Include="Assets\FileTypeImg\folder.png" />
+    <Content Include="Assets\FileTypeImg\html.png" />
+    <Content Include="Assets\FileTypeImg\jpg.png" />
+    <Content Include="Assets\FileTypeImg\mp3.png" />
+    <Content Include="Assets\FileTypeImg\mp4.png" />
+    <Content Include="Assets\FileTypeImg\pdf.png" />
+    <Content Include="Assets\FileTypeImg\png.png" />
+    <Content Include="Assets\FileTypeImg\txt.png" />
+    <Content Include="Assets\FileTypeImg\xls.png" />
+    <Content Include="Assets\FileTypeImg\zip.png" />
     <Content Include="Assets\ikona.jpg" />
+    <Content Include="Assets\share.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

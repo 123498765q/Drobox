@@ -113,5 +113,13 @@ namespace UWP
             NavView.Header = "Settings";
         }
 
+        private void share_click(object sender, RoutedEventArgs e)
+        {
+            if (!(ContentFrame.CurrentSourcePageType == typeof(SharedScreen)))
+            {
+                ContentFrame.Navigate(typeof(SharedScreen));
+            }
+
+        }
     }
 }

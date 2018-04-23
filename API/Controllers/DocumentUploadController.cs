@@ -10,6 +10,7 @@ using System.Web;
 using System.Web.Configuration;
 using System.Web.Http;
 using System.Web.Http.Description;
+using API.Classes;
 using API.Models;
 
 namespace API.Controllers
@@ -72,9 +73,8 @@ namespace API.Controllers
             return response;
         }
 
-        // DELETE: api/Users/5
-        [HttpPost]
-        [Route("api/deletefile")]
+        [HttpDelete]
+        [Route("api/delete-file")]
         public IHttpActionResult DeleteFile([FromBody] string filePath)
         {
             if (File.Exists(filePath))
@@ -83,6 +83,34 @@ namespace API.Controllers
                 return Ok("OK");
             }
             return Ok("NO_FILE");
+        }
+
+        [HttpPost]
+        [Route("api/share-files")]
+        public IHttpActionResult ShareFiles(SharedFilesData data)
+        {
+            foreach (var file in data.Files)
+            {
+                if (!File.Exists(file))
+                {
+                    return Ok("FATAL_ERROR");
+                }
+            }
+            
+            ManageFiles.CreateUserFolderGuid(data.sub, data.Files);
+
+            return Ok("OK");
+        }
+
+        [HttpGet]
+        [Route("api/get-files/{userId}/{folderName}")]
+        public IHttpActionResult GetFiles(string userId, string folderName)
+        {
+            string path = @"C:\Users\Mykolas\Documents\Repos\Drobox\API\UsersData\" + userId + @"\" + folderName;
+            var files = Directory.GetFiles(path, "*.*", SearchOption.TopDirectoryOnly);
+            var dirs = Directory.GetDirectories(path);
+            var full = files.Concat(dirs).ToArray();
+            return Ok(full);
         }
     }
 }

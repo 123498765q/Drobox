@@ -5,12 +5,9 @@
     xmlns:local="using:UWP"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:classes="using:UWP.Classes"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock Text="SHARED"
-                   FontSize="70"
-                   VerticalAlignment="Center"
-                   HorizontalAlignment="Center"/>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="0,20,20,0">
     </Grid>
 </Page>
