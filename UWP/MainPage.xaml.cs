@@ -30,12 +30,16 @@ namespace UWP
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        
         public MainPage()
         {
             this.InitializeComponent();
             //GetFilesAsync();
             GetFoldersAsync();
+
+
         }
+        
         private async void GetFilesAsync()
         {
             Windows.Storage.StorageFolder picturesFolder = Windows.ApplicationModel.Package.Current.InstalledLocation;
@@ -71,6 +75,7 @@ namespace UWP
         private async void GetFoldersAsync()
         {
             Windows.Storage.StorageFolder picturesFolder = Windows.ApplicationModel.Package.Current.InstalledLocation;
+            //var picturesFolder = await Windows.ApplicationModel.Package.Current.InstalledLocation.GetFolderAsync("");
 
             StringBuilder outputText = new StringBuilder();
 
@@ -103,7 +108,7 @@ namespace UWP
 
                     Button button = new Button();
                     button.Content = item.Name;
-                    
+
                     button.FontSize = 11;
                     button.VerticalContentAlignment = VerticalAlignment.Bottom;
                     button.Width = 100;

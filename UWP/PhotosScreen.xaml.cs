@@ -1,7 +1,12 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.NetworkInformation;
+using System.Net.Sockets;
 using System.Runtime.InteropServices.WindowsRuntime;
 using UWP.Classes;
 using Windows.Devices.Geolocation;
@@ -35,10 +40,17 @@ namespace UWP
             komentaras.Visibility = Visibility.Collapsed;
             Save.Visibility = Visibility.Collapsed;
             Photo.Visibility = Visibility.Collapsed;
+            locationCB.Visibility = Visibility.Collapsed;
+            lokacija.Visibility = Visibility.Collapsed;
             makePhoto();
+            GPS gps = new GPS();
+            string ip = gps.GetPublicIP();
+            //string ip2 = gps.GetLocalIPAddress();
+            //string ip = gps.GetLocalIPv4(NetworkInterfaceType.Ethernet);
+            string location = gps.GetUserCountryByIp("188.69.192.58");
+            lokacija.Text = location;
         }
 
-       
         private async void Photo_Click(object sender, RoutedEventArgs e)
         {
             makePhoto();
@@ -65,6 +77,7 @@ namespace UWP
                 komentaras.Visibility = Visibility.Visible;
                 Save.Visibility = Visibility.Visible;
                 Photo.Visibility = Visibility.Visible;
+                locationCB.Visibility = Visibility.Visible;
 
             }
             else
@@ -81,6 +94,16 @@ namespace UWP
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void locationCB_Checked(object sender, RoutedEventArgs e)
+        {
+            lokacija.Visibility = Visibility.Visible;
+        }
+
+        private void locationCB_Unchecked(object sender, RoutedEventArgs e)
+        {
+            lokacija.Visibility = Visibility.Collapsed;
         }
     }
 }

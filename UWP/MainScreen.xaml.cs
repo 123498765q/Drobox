@@ -38,9 +38,7 @@ namespace UWP
         {
             if (args.IsSettingsSelected)
             {
-                ContentFrame.Navigate(typeof(SettingsPage));
-                NavView.Header = "Settings";
-
+                NavigateToSettings();
             }
             else
             {
@@ -65,10 +63,8 @@ namespace UWP
                         break;
                     case "login":
                         break;
-
                 }
-            }
-            
+            } 
         }
 
         private async void addFile_Click(object sender, RoutedEventArgs e)
@@ -110,6 +106,11 @@ namespace UWP
             PhotosScreen ps = new PhotosScreen();
             this.NavView.Header = "Add photo";
             //ps.makePhoto();
+        }
+        public void NavigateToSettings()
+        {
+            ContentFrame.Navigate(typeof(SettingsPage));
+            NavView.Header = "Settings";
         }
 
     }

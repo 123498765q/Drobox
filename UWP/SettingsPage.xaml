@@ -7,18 +7,16 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
+    <ScrollViewer>
+        <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBlock Text="SETTINGS"
-                   FontSize="70"
-                   VerticalAlignment="Center"
-                   HorizontalAlignment="Center" Margin="18,12,1178,895"/>
-        <TextBlock  FontSize="30" x:Name="textBlock" HorizontalAlignment="Left" Margin="84,126,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <Button FontSize="30" x:Name="button" Content="Send" HorizontalAlignment="Left" Margin="94,396,0,0" VerticalAlignment="Top" Click="button_Click"/>
-        <TextBlock FontSize="40" x:Name="textBlock3" HorizontalAlignment="Left" Margin="82,180,0,0" Text="Send email for more storage space" TextWrapping="Wrap" VerticalAlignment="Top" Width="640"/>
-        <TextBox x:Name="textBox2" HorizontalAlignment="Left" Margin="90,272,0,0" Text="" VerticalAlignment="Top" Height="112" Width="334"/>
-        <TextBlock x:Name="textBlock4" HorizontalAlignment="Left" Margin="92,244,0,0" Text="Enter your text:" TextWrapping="Wrap" VerticalAlignment="Top"/>
-    </Grid>
-
+            <TextBlock  FontSize="20" x:Name="textBlock" HorizontalAlignment="Left" Margin="15,20,10,10" Text="" TextWrapping="Wrap" VerticalAlignment="Top"/>
+            <Grid Margin="0, 40, 0, 0">
+                <TextBlock FontSize="20" x:Name="textBlock3" HorizontalAlignment="Left" Margin="15,60,10,10" Text="Send email for more storage space" TextWrapping="Wrap" VerticalAlignment="Top" Width="640"/>
+                <TextBox x:Name="textBox2" Header="Enter your text:" HorizontalAlignment="Left" Margin="15,100,10,10" Text="" VerticalAlignment="Top" Height="112" Width="334"/>
+                <Button FontSize="20" x:Name="button" Content="Send" HorizontalAlignment="Left" Margin="15,215,10,10" VerticalAlignment="Top" Click="button_Click"/>
+            </Grid>
+        </Grid>
+    </ScrollViewer>
 
 </Page>
