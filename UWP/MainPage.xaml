@@ -8,40 +8,23 @@
     xmlns:classes="using:UWP.Classes"
     mc:Ignorable="d">
 
-    <Page.Resources>
-        <DataTemplate x:Key="BookListDataTemplate" x:DataType="classes:File">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                <Image Source="{x:Bind TypeImage}" HorizontalAlignment="Center" Width="50" />
-                <TextBlock Text="{x:Bind FileName}" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" Margin="20, 0, 0, 0"/>
-                <Button x:Name="ShareBtn" Height="30" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Padding="0" Margin="20, 0, 20, 0" Click="ShareBtn_OnClick">
-                    <Image Source="Assets/share.png" Stretch="UniformToFill" Margin="2, 2, 2, 2" />
-                </Button>
-                <Button x:Name="DelBtn" Height="30" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Padding="0" Margin="20, 0, 20, 0" Click="DelBtn_OnClick">
-                    <Image Source="Assets/delete.png" Stretch="UniformToFill" Margin="5, 5, 5, 5" />
-                </Button>
-            </StackPanel>
-        </DataTemplate>
-    </Page.Resources>
-
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="0,20,20,0">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="100" />
-        </Grid.RowDefinitions>
-        <TextBlock Grid.Row="1" 
-                   Name="ResultTextBlock" 
-                   FontSize="24" 
-                   Foreground="Red" 
-                   FontWeight="Bold" 
-                   Margin="20,20,0,0" />
-        <ListView x:Name="list"
-                  ItemClick="ListView_ItemClick" 
-                  IsItemClickEnabled="True"/>
-        <Button x:Name="btnn" Content="Button" HorizontalAlignment="Left" Margin="822,293,0,-412" Grid.RowSpan="2" VerticalAlignment="Top" RenderTransformOrigin="0.615,0.781" Click="Button_Click" Height="119" UseLayoutRounding="False" Width="167" d:LayoutRounding="Auto">
-            <Button.RenderTransform>
-                <CompositeTransform Rotation="-7.574"/>
-            </Button.RenderTransform>
-        </Button>
-        <TextBlock x:Name="aaa" HorizontalAlignment="Left" Margin="563,440,0,-610" Grid.RowSpan="2" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Top" Height="170" Width="237"/>
+        <ListView x:Name="listView1" SelectionMode="Extended"  RightTapped="ListView1_OnRightTapped" DoubleTapped="ListView1_OnDoubleTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="classes:File">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="47"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Image Source="{Binding TypeImage}" Width="32" Height="32" 
+                               HorizontalAlignment="Left"/>
+                        <TextBlock Text="{x:Bind FileName}" Foreground="Teal" 
+                                   FontSize="15" Grid.Column="1"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button x:Name="btn" Content="asd" Height="101" Margin="690,569,0,310" Width="365" Click="Btn_OnClick"></Button>
     </Grid>
 </Page>
