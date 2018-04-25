@@ -117,9 +117,19 @@ namespace UWP
         {
             if (!(ContentFrame.CurrentSourcePageType == typeof(SharedScreen)))
             {
+                NavView.Header = "Shared";
                 ContentFrame.Navigate(typeof(SharedScreen));
             }
 
         }
+
+        private void cmb_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            /*cmb.IsOpen = true;
+            test.Text = "CMB";*/
+        }
+
+      
+        
     }
 }
