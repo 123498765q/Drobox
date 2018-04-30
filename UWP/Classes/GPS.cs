@@ -28,23 +28,20 @@ namespace UWP.Classes
                 ipInfo.Country = null;
             }
             return ipInfo.Country + ", " + ipInfo.City + "(" + ipInfo.Loc + ")";
-           
-
-
         }
 
-        public string GetLocalIPAddress()
-        {
-            var host = Dns.GetHostEntry(Dns.GetHostName());
-            foreach (var ip in host.AddressList)
-            {
-                if (ip.AddressFamily == AddressFamily.InterNetwork)
-                {
-                    return ip.ToString();
-                }
-            }
-            throw new Exception("No network adapters with an IPv4 address in the system!");
-        }
+        //public string GetLocalIPAddress()
+        //{
+        //    var host = Dns.GetHostEntry(Dns.GetHostName());
+        //    foreach (var ip in host.AddressList)
+        //    {
+        //        if (ip.AddressFamily == AddressFamily.InterNetwork)
+        //        {
+        //            return ip.ToString();
+        //        }
+        //    }
+        //    throw new Exception("No network adapters with an IPv4 address in the system!");
+        //}
 
 
 
@@ -63,23 +60,23 @@ namespace UWP.Classes
         }
 
 
-        public string GetLocalIPv4(NetworkInterfaceType _type)
-        {
-            string output = "";
-            foreach (NetworkInterface item in NetworkInterface.GetAllNetworkInterfaces())
-            {
-                if (item.NetworkInterfaceType == _type && item.OperationalStatus == OperationalStatus.Up)
-                {
-                    foreach (UnicastIPAddressInformation ip in item.GetIPProperties().UnicastAddresses)
-                    {
-                        if (ip.Address.AddressFamily == AddressFamily.InterNetwork)
-                        {
-                            output = ip.Address.ToString();
-                        }
-                    }
-                }
-            }
-            return output;
-        }
+        //public string GetLocalIPv4(NetworkInterfaceType _type)
+        //{
+        //    string output = "";
+        //    foreach (NetworkInterface item in NetworkInterface.GetAllNetworkInterfaces())
+        //    {
+        //        if (item.NetworkInterfaceType == _type && item.OperationalStatus == OperationalStatus.Up)
+        //        {
+        //            foreach (UnicastIPAddressInformation ip in item.GetIPProperties().UnicastAddresses)
+        //            {
+        //                if (ip.Address.AddressFamily == AddressFamily.InterNetwork)
+        //                {
+        //                    output = ip.Address.ToString();
+        //                }
+        //            }
+        //        }
+        //    }
+        //    return output;
+        //}
     }
 }

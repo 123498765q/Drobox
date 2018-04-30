@@ -39,7 +39,7 @@ namespace UWP
             this.InitializeComponent();
             komentaras.Visibility = Visibility.Collapsed;
             Save.Visibility = Visibility.Collapsed;
-            Photo.Visibility = Visibility.Collapsed;
+            //Photo.Visibility = Visibility.Collapsed;
             locationCB.Visibility = Visibility.Collapsed;
             lokacija.Visibility = Visibility.Collapsed;
             makePhoto();
@@ -76,7 +76,7 @@ namespace UWP
                 CapturePhoto.Source = bitmapImage;
                 komentaras.Visibility = Visibility.Visible;
                 Save.Visibility = Visibility.Visible;
-                Photo.Visibility = Visibility.Visible;
+                //Photo.Visibility = Visibility.Visible;
                 locationCB.Visibility = Visibility.Visible;
 
             }

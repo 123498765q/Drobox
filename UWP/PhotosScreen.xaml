@@ -12,7 +12,7 @@
             <Grid Margin="30, 30, 0, 40">
                 <!--<Button x:Name="Photo" Content="New Photo" Margin="30,370,30,0" Click="Photo_Click"/>
                 <Button x:Name="Save" Content="Save Photo"  Margin="150,370,30,0"  Click="Button_Click"/>-->
-                <Button x:Name="Photo" Content="New Photo" HorizontalAlignment="Center" Margin="-80,485,30,0" Click="Photo_Click"/>
+                <!--<Button x:Name="Photo" Content="New Photo" HorizontalAlignment="Center" Margin="-80,485,30,0" Click="Photo_Click"/>-->
                 <Button x:Name="Save" Content="Save Photo" HorizontalAlignment="Center" Margin="130,485,30,0"  Click="Button_Click"/>
                 <Image x:Name="CapturePhoto"  Height="300"  Margin="-80,-200,30,20"  Width="300"/>
                 <TextBox x:Name="komentaras"  Header="Commentary" PlaceholderText="Insert your commentary here"  Margin="-80,200,30,0" Text=""  Height="120" Width="300"/>
