@@ -129,19 +129,24 @@ namespace UWP
             return result;
         }
 
-
-
         private async void button_Click(object sender, RoutedEventArgs e)
-        {    
+        {
             string text = textBox2.Text;
+
+            await sendEmailAsync(text, "inc.drobox@gmail.com");
+
+        }
+
+        public async Task sendEmailAsync(string text, string email)
+        {
             if (String.IsNullOrEmpty(text) == true)
             {
-                await new MessageDialog("Email text is empty!", "Error").ShowAsync(); 
+                await new MessageDialog("Email text is empty!", "Error").ShowAsync();
             }
             else
-            { 
+            {
                 var fromAddress = new MailAddress("inc.drobox@gmail.com", "From customer");
-                var toAddress = new MailAddress("inc.drobox@gmail.com", "For admin");
+                var toAddress = new MailAddress(email, "For admin");
                 string fromPassword = "drobox123";
                 string subject = "Storage space";
                 string body = text;
@@ -164,7 +169,42 @@ namespace UWP
                     smtp.Send(message);
                 }
             }
-        }   
-}
+        }
+
+//        private async void button_Click(object sender, RoutedEventArgs e)
+//        {    
+//            string text = textBox2.Text;
+//            if (String.IsNullOrEmpty(text) == true)
+//            {
+//                await new MessageDialog("Email text is empty!", "Error").ShowAsync(); 
+//            }
+//            else
+//            { 
+//                var fromAddress = new MailAddress("inc.drobox@gmail.com", "From customer");
+//                var toAddress = new MailAddress("inc.drobox@gmail.com", "For admin");
+//                string fromPassword = "drobox123";
+//                string subject = "Storage space";
+//                string body = text;
+//
+//                var smtp = new SmtpClient
+//                {
+//                    Host = "smtp.gmail.com",
+//                    Port = 587,
+//                    EnableSsl = true,
+//                    DeliveryMethod = SmtpDeliveryMethod.Network,
+//                    Credentials = new NetworkCredential(fromAddress.Address, fromPassword),
+//                    Timeout = 20000
+//                };
+//                using (var message = new MailMessage(fromAddress, toAddress)
+//                {
+//                    Subject = subject,
+//                    Body = body
+//                })
+//                {
+//                    smtp.Send(message);
+//                }
+//            }
+//        }   
+    }
 }
 

@@ -97,6 +97,33 @@ namespace API.Controllers
         }
 
         [HttpPost]
+        [Route("api/copy-dir")]
+        public IHttpActionResult CopyDir([FromBody] string data)
+        {
+            var paths = data.Split('~');
+            var folderName = paths[0].Split('\\').Last();
+            try
+            {
+                
+                paths[1] = @"C:\Users\Mykolas\Documents\Repos\Drobox\API\UsersData\" + paths[1];
+                
+                Directory.CreateDirectory(paths[1] + folderName);
+                var filesInDir = Directory.GetFiles(paths[0], "*.*", SearchOption.AllDirectories);
+                foreach (string file in filesInDir)
+                {
+                    var name = file.Split('\\').Last();
+                    File.Copy(Path.Combine(file), Path.Combine(paths[1] + "\\" + folderName + "\\" + name), true);
+                }
+            }
+            catch
+            {
+                Directory.Delete(paths[1] + folderName, true);
+            }
+
+            return Ok();
+        }
+
+        [HttpPost]
         [Route("api/get-file-path")]
         public IHttpActionResult GetFilePath([FromBody] string userPath)
         {

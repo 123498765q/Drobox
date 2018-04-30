@@ -96,6 +96,26 @@ namespace UWP.Classes
             }
         }
 
+        public static void CopyDir(string sourcePath, string destPath)
+        {
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    var full = sourcePath + "~" + destPath + "~" + App.sub;
+                    client.BaseAddress = new Uri(BaseUri);
+                    var response = client.PostAsJsonAsync("api/copy-dir", full).Result;
+                    if (response.IsSuccessStatusCode)
+                    {
+                    }
+                }
+            }
+            catch
+            {
+                // ignored
+            }
+        }
+
         public static void AddFile(string[] selectedFilePaths, string userPath = "")
         {
             string userFilePath = App.sub;
@@ -147,7 +167,7 @@ namespace UWP.Classes
                 // ignored
             }
         }
-
+        
         public static async Task<string[]> GetFileList(string folder)
         {
             try

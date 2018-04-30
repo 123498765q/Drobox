@@ -8,11 +8,7 @@ using Windows.Foundation.Collections;
 using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 using UWP.Classes;
 using File = UWP.Classes.File;
 
@@ -150,5 +146,17 @@ namespace UWP
             }
         }
 
+        private void GetSharedFolder_OnClick(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                FileUtil.CopyDir(sharedPath.Text, App.sub + "\\Shared\\");
+                InitListAsync(currentPath);
+            }
+            catch
+            {
+                // ignored
+            }
+        }
     }
 }
