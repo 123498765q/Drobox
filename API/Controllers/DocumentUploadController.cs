@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Configuration;
@@ -40,18 +41,14 @@ namespace API.Controllers
 
             Stream input = await file1.ReadAsStreamAsync();
             string tempDocUrl = WebConfigurationManager.AppSettings["DocsUrl"];
-
-            //if (formData["ClientDocs"] == "ClientDocs")
-            //{
-            
             
             var path = HttpRuntime.AppDomainAppPath;
             var directoryName = System.IO.Path.Combine(path, "UsersData");
 
-            var idAndName = filePath.Split('/');
-            var filename = System.IO.Path.Combine(directoryName, idAndName[0] + "\\" + idAndName[1] + "\\" + thisFileName);
+            var changedPath = filePath.Replace('/', '\\');
+
+            var filename = System.IO.Path.Combine(directoryName, changedPath + "\\" + thisFileName);
             
-            //userFilePath = System.IO.Path.Combine()
             if (File.Exists(filename))
             {
                 File.Delete(filename);
@@ -59,8 +56,6 @@ namespace API.Controllers
 
             string DocsPath = tempDocUrl + "/" + "UsersData" + "/" + filePath + "/";
             var URL = DocsPath + thisFileName;
-
-            // }
 
             using (Stream file = File.OpenWrite(filename))
             {
@@ -73,7 +68,7 @@ namespace API.Controllers
             return response;
         }
 
-        [HttpDelete]
+        [HttpPost]
         [Route("api/delete-file")]
         public IHttpActionResult DeleteFile([FromBody] string filePath)
         {
@@ -82,35 +77,63 @@ namespace API.Controllers
                 File.Delete(filePath);
                 return Ok("OK");
             }
+            else if (Directory.Exists(filePath))
+            {
+                Directory.Delete(filePath, true);
+                return Ok("OK");
+            }
             return Ok("NO_FILE");
         }
 
         [HttpPost]
         [Route("api/share-files")]
-        public IHttpActionResult ShareFiles(SharedFilesData data)
+        public IHttpActionResult ShareFiles([FromBody] string data)
         {
-            foreach (var file in data.Files)
-            {
-                if (!File.Exists(file))
-                {
-                    return Ok("FATAL_ERROR");
-                }
-            }
-            
-            ManageFiles.CreateUserFolderGuid(data.sub, data.Files);
-
-            return Ok("OK");
+            var paths = data.Split('~');
+            paths[1] = @"C:\Users\Mykolas\Documents\Repos\Drobox\API\UsersData\" + paths[1];
+            var fileName = paths[0].Split('\\').Last();
+            File.Copy(Path.Combine(paths[0]), Path.Combine(paths[1] + "\\" + fileName), true);
+            return Ok();
         }
 
-        [HttpGet]
-        [Route("api/get-files/{userId}/{folderName}")]
-        public IHttpActionResult GetFiles(string userId, string folderName)
+        [HttpPost]
+        [Route("api/get-file-path")]
+        public IHttpActionResult GetFilePath([FromBody] string userPath)
         {
-            string path = @"C:\Users\Mykolas\Documents\Repos\Drobox\API\UsersData\" + userId + @"\" + folderName;
+            string path = @"C:\Users\Mykolas\Documents\Repos\Drobox\API\UsersData\" + userPath;
             var files = Directory.GetFiles(path, "*.*", SearchOption.TopDirectoryOnly);
             var dirs = Directory.GetDirectories(path);
             var full = files.Concat(dirs).ToArray();
             return Ok(full);
+        }
+
+        [HttpPost]
+        [Route("api/get-file")]
+        public HttpResponseMessage GetFiles([FromBody] string userPath)
+        {
+            string path = @"C:\Users\Mykolas\Documents\Repos\Drobox\API\UsersData\" + userPath;
+            //path = @"C:\Users\Mykolas\Documents\Repos\Drobox\API\UsersData\100570058492936480965\MrM\xxx.pdf";
+
+
+            HttpResponseMessage result = new HttpResponseMessage(HttpStatusCode.OK);
+            var stream = new FileStream(path, FileMode.Open, FileAccess.Read);
+            result.Content = new StreamContent(stream);
+            result.Content.Headers.ContentType = new MediaTypeHeaderValue("application/octet-stream");
+            return result;
+        }
+
+        [HttpPost]
+        [Route("api/create-folder")]
+        public IHttpActionResult CreateFolder([FromBody] string userPath)
+        {
+            string path = @"C:\Users\Mykolas\Documents\Repos\Drobox\API\UsersData\" + userPath;
+
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+
+            return Ok();
         }
     }
 }

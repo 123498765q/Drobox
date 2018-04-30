@@ -5,7 +5,6 @@ using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using API.Classes;
@@ -86,6 +85,7 @@ namespace API.Controllers
 
             db.Users.Add(user);
             ManageFiles.CreateUserFolder(user.sub, user.given_name);
+            ManageFiles.CreateUserFolder(user.sub, "Shared");
 
             try
             {

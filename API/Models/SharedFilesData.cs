@@ -7,17 +7,11 @@ namespace API.Models
 {
     public class SharedFilesData
     {
-        public string sub { get; set; }
-        public string[] Files { get; set; }
+        public string sourcePath { get; set; }
+        public string destPath { get; set; }
 
         public SharedFilesData()
         {
-        }
-
-        public SharedFilesData(string sub, string[] files)
-        {
-            this.sub = sub;
-            Files = files;
         }
     }
 }

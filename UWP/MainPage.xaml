@@ -9,7 +9,11 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="0,20,20,0">
-        <ListView x:Name="listView1" SelectionMode="Extended"  RightTapped="ListView1_OnRightTapped" DoubleTapped="ListView1_OnDoubleTapped">
+        <Button x:Name="BackButton" Style="{StaticResource NavigationBackButtonNormalStyle}" Margin="10,10,0,0" Click="BackButton_OnClick" VerticalAlignment="Top" Height="27" Width="35" />
+        <TextBlock x:Name="PathDisplay" HorizontalAlignment="Left" Margin="70,10,0,0" Text="path" TextWrapping="Wrap" VerticalAlignment="Top" Width="826" Height="30" FontSize="18" FontFamily="Century Gothic"/>
+        <Button x:Name="Sync" Content="Sync" Margin="0,4,10,0" VerticalAlignment="Top" Background="Transparent" Click="Sync_OnClick" HorizontalAlignment="Right" Width="51"/>
+
+        <ListView x:Name="listView1" RightTapped="ListView1_OnRightTapped" DoubleTapped="ListView1_OnDoubleTapped" Margin="0,50,0,0">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="classes:File">
                     <Grid>
@@ -25,6 +29,5 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <Button x:Name="btn" Content="asd" Height="101" Margin="690,569,0,310" Width="365" Click="Btn_OnClick"></Button>
     </Grid>
 </Page>

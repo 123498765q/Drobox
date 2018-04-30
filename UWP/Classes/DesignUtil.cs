@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Xaml.Controls;
 
 namespace UWP.Classes
 {
-    static class DesignUtils
+    static class DesignUtil
     {
         public static string SelectExtentionImage(string fileExtention)
         {
@@ -55,6 +56,23 @@ namespace UWP.Classes
                     return fileExtention;
             }
             return "folder";
+        }
+
+        public static async Task<string> InputTextDialogAsync(string title)
+        {
+            TextBox inputTextBox = new TextBox();
+            inputTextBox.AcceptsReturn = false;
+            inputTextBox.Height = 32;
+            ContentDialog dialog = new ContentDialog();
+            dialog.Content = inputTextBox;
+            dialog.Title = title;
+            dialog.IsSecondaryButtonEnabled = true;
+            dialog.PrimaryButtonText = "Ok";
+            dialog.SecondaryButtonText = "Cancel";
+            if (await dialog.ShowAsync() == ContentDialogResult.Primary)
+                return inputTextBox.Text;
+            else
+                return "";
         }
     }
 }

@@ -170,7 +170,7 @@ namespace UWP
             output(userinfoResponseContent);
            
             UserInfo userInfo = Str2UserInfo(userinfoResponseContent);
-            Util.PostUser(userInfo);
+            FileUtil.PostUser(userInfo);
 
           
 
