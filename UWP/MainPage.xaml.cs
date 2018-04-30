@@ -173,36 +173,8 @@ namespace UWP
         //        }
         private async void ShareOnClick(object sender, RoutedEventArgs routedEventArgs)
         {
-            string text = await DesignUtil.InputTextDialogAsync("Email:");
-            string text2 = "  ";
-            if (listView1.SelectedItems.Count > 0)
-            {
-                if (String.IsNullOrEmpty(text) == true || String.IsNullOrEmpty(text2) == true)
-                {
-                    await new MessageDialog("Email or folder text is empty!", "Error").ShowAsync();
-                }
-                else
-                {
-
-                    try
-                    {
-                        File f = (File) listView1.SelectedItems[0];
-                        var basePath = f.FilePath.Split(App.sub).First();
-                        text2 = await DesignUtil.InputTextDialogAsync("Folder Name:", basePath + App.sub + "\\Shared\\");
-                        string destPath = App.sub + "\\Shared\\" + text2;
-                        SettingsPage sp = new SettingsPage();
-                        await sp.sendEmailAsync(App.given_name + " is sharing with you: " + basePath + App.sub + "\\Shared\\" + text2, text);
-                        FileUtil.CreateFolder(destPath);
-                        FileUtil.ShareFiles(f.FilePath, destPath);
-                    }
-                    catch
-                    {
-                        // ignored
-                    }
-                }
-
-            }
-            else
+                    
+            if (listView1.SelectedItems.Count <= 0)
             {
                 ContentDialog noWifiDialog = new ContentDialog
                 {
@@ -211,6 +183,37 @@ namespace UWP
                     CloseButtonText = "Ok"
                 };
                 ContentDialogResult result = await noWifiDialog.ShowAsync();
+            }
+            else
+            {
+                string text = await DesignUtil.InputTextDialogAsync("Email:");
+                string text2 = "  ";
+
+                if (String.IsNullOrEmpty(text) == true || String.IsNullOrEmpty(text2) == true)
+                {
+                    await new MessageDialog("Email or folder text is empty!", "Error").ShowAsync();
+                }
+                else
+                {
+                    try
+                    {
+                        File f = (File) listView1.SelectedItems[0];
+                        var basePath = f.FilePath.Split(App.sub).First();
+                        text2 = await DesignUtil.InputTextDialogAsync("Folder Name:",
+                            basePath + App.sub + "\\Shared\\");
+                        string destPath = App.sub + "\\Shared\\" + text2;
+                        SettingsPage sp = new SettingsPage();
+                        await sp.sendEmailAsync(
+                            App.given_name + " is sharing with you: " + basePath + App.sub + "\\Shared\\" + text2,
+                            text);
+                        FileUtil.CreateFolder(destPath);
+                        FileUtil.ShareFiles(f.FilePath, destPath);
+                    }
+                    catch
+                    {
+                        // ignored
+                    }
+                }
             }
         }
 
