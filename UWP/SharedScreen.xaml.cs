@@ -150,11 +150,8 @@ namespace UWP
         {
             try
             {
-                if (sharedPath.Text != "")
-                {
-                    FileUtil.CopyDir(sharedPath.Text, App.sub + "\\Shared\\");
-                    InitListAsync(currentPath);
-                }
+                FileUtil.CopyDir(sharedPath.Text, App.sub + "\\Shared\\");
+                InitListAsync(currentPath);
             }
             catch
             {
