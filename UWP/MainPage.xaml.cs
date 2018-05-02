@@ -31,12 +31,6 @@ namespace UWP
             InitListAsync(currentPath);
         }
 
-//        private void ShareBtn_OnClick(object sender, RoutedEventArgs e)
-//        {
-//            string[] filePaths = { @"C:\Users\Mykolas\Desktop\files\b.png", @"C:\Users\Mykolas\Desktop\files\a.png" };
-//            FileUtil.AddFile(filePaths);
-//        }
-
         private async void InitListAsync(string folder)
         {
             try
@@ -82,10 +76,12 @@ namespace UWP
             MenuFlyoutItem createFolder = new MenuFlyoutItem { Text = "Create folder" };
             MenuFlyoutItem share = new MenuFlyoutItem { Text = "Share" };
             MenuFlyoutItem delete = new MenuFlyoutItem { Text = "Delete" };
+            MenuFlyoutItem metadata = new MenuFlyoutItem { Text = "Get info" };
             myFlyout.Items.Add(addFile);
             myFlyout.Items.Add(createFolder);
             myFlyout.Items.Add(share);
             myFlyout.Items.Add(delete);
+            myFlyout.Items.Add(metadata);
 
             FrameworkElement senderElement = sender as FrameworkElement;
             myFlyout.ShowAt(sender as UIElement, e.GetPosition(sender as UIElement));
@@ -94,6 +90,47 @@ namespace UWP
             createFolder.Click += CreateFolderOnClick;
             share.Click += ShareOnClick;
             delete.Click += DeleteOnClick;
+            metadata.Click += MetadataOnClick;
+        }
+
+        private async void MetadataOnClick(object sender, RoutedEventArgs routedEventArgs)
+        {
+            string path = "";
+            if (listView1.SelectedItems.Count > 0)
+            {
+                File f = (File)listView1.SelectedItems[0];
+                path = f.FilePath;
+            }
+            else
+            {
+                ContentDialog noWifiDialog = new ContentDialog
+                {
+                    Title = "Error",
+                    Content = "Please select file.",
+                    CloseButtonText = "Ok"
+                };
+                ContentDialogResult result = await noWifiDialog.ShowAsync();
+            }
+
+            ImageInfo info = await FileUtil.GetImageInfo(path);
+
+            ContentDialog informationalDialog = new ContentDialog
+            {
+                Title = "Information",
+                CloseButtonText = "Ok"
+            };
+
+            if (info == null)
+            {
+                informationalDialog.Content ="There is no information found.";
+            }
+            else
+            {
+                informationalDialog.Content = info.Message + "\n" + info.Location;
+            }
+            
+
+            await informationalDialog.ShowAsync();
         }
 
         private async void CreateFolderOnClick(object sender, RoutedEventArgs routedEventArgs)
@@ -148,29 +185,6 @@ namespace UWP
             }
         }
 
-        //        private async void ShareOnClick(object sender, RoutedEventArgs routedEventArgs)
-        //        {
-        //            if (listView1.SelectedItems.Count > 0)
-        //            {
-        //                File f = (File)listView1.SelectedItems[0];
-        //                var basePath = f.FilePath.Split(App.sub).First();
-        //                string text = await DesignUtil.InputTextDialogAsync("Folder name", basePath + App.sub + "\\Shared\\");
-        //                string destPath = App.sub + "\\Shared\\" + text;
-        //                FileUtil.CreateFolder(destPath);
-        //                FileUtil.ShareFiles(f.FilePath, destPath);
-        //            }
-        //            else
-        //            {
-        //                ContentDialog noWifiDialog = new ContentDialog
-        //                {
-        //                    Title = "Error",
-        //                    Content = "Please select file.",
-        //                    CloseButtonText = "Ok"
-        //                };
-        //                ContentDialogResult result = await noWifiDialog.ShowAsync();
-        //            }
-        //
-        //        }
         private async void ShareOnClick(object sender, RoutedEventArgs routedEventArgs)
         {
             string text = await DesignUtil.InputTextDialogAsync("Email:");

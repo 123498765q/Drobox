@@ -18,6 +18,7 @@ namespace UWP.Classes
     static class FileUtil
     {
         private static string BaseUri = "http://localhost:57769/";
+        public static string BaseApiPath { get; } = @"C:\Users\Mykolas\Documents\Repos\Drobox\API\UsersData\";
 
         public static void PostUser(UserInfo userInfo)
         {
@@ -224,6 +225,50 @@ namespace UWP.Classes
             {
                 // ignored
             }
+        }
+
+        public static void PostImageInfo(ImageInfo info)
+        {
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    client.BaseAddress = new Uri(BaseUri);
+                    var response = client.PostAsJsonAsync("api/add-image-info", info).Result;
+                    if (response.IsSuccessStatusCode)
+                    {
+                    }
+                }
+            }
+            catch
+            {
+                // ignored
+            }
+        }
+
+        public static async Task<ImageInfo> GetImageInfo(string path)
+        {
+            try
+            {
+                using (var client = new HttpClient())
+                {
+                    client.BaseAddress = new Uri(BaseUri);
+                    var response = client.PostAsJsonAsync("api/get-image-info", path).Result;
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var imageInfo = await response.Content.ReadAsAsync<ImageInfo>();
+                        return imageInfo;
+                    }
+                }
+
+                return null;
+            }
+            catch
+            {
+                // ignored
+            }
+
+            return null;
         }
     }
 }

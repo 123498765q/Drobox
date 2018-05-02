@@ -29,7 +29,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <TextBox x:Name="sharedPath" Margin="70,46,0,0" HorizontalAlignment="Left" Text="" RenderTransformOrigin="0.357,0.469" PlaceholderText="Enter path url" Width="719" Height="32" VerticalAlignment="Top"/>
-        <Button x:Name="GetSharedFolder" Content="Get" HorizontalAlignment="Left" Margin="845,46,0,0" VerticalAlignment="Top" Background="Transparent" Click="GetSharedFolder_OnClick"/>
+        <TextBox x:Name="sharedPath" Margin="10,46,0,0" HorizontalAlignment="Left" Text="" RenderTransformOrigin="0.357,0.469" PlaceholderText="Enter path url" Width="550" Height="32" VerticalAlignment="Top"/>
+        <Button x:Name="GetSharedFolder" Content="Get" HorizontalAlignment="Left" Margin="590,46,0,0" VerticalAlignment="Top" Background="Transparent" Click="GetSharedFolder_OnClick" RenderTransformOrigin="0.568,0.594"/>
     </Grid>
 </Page>

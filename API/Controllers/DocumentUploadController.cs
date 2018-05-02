@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.Data.Entity.Infrastructure;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -12,12 +13,16 @@ using System.Web.Configuration;
 using System.Web.Http;
 using System.Web.Http.Description;
 using API.Classes;
+using API.DataAccess;
 using API.Models;
 
 namespace API.Controllers
 {
     public class DocumentUploadController : ApiController
     {
+        private DataContext db = new DataContext();
+        private string RootPath = @"C:\Users\Mykolas\Documents\Repos\Drobox\API\UsersData\";
+
         [HttpPost]
         [Route("api/uploadfile")]
         public async Task<HttpResponseMessage> MediaUpload()
@@ -38,6 +43,8 @@ namespace API.Controllers
             var pathAndName = thisFileName.Split('~');
             thisFileName = pathAndName[0];
             var filePath = pathAndName[1];
+            filePath = filePath.Replace("/" + thisFileName, "");
+
 
             Stream input = await file1.ReadAsStreamAsync();
             string tempDocUrl = WebConfigurationManager.AppSettings["DocsUrl"];
@@ -56,12 +63,21 @@ namespace API.Controllers
 
             string DocsPath = tempDocUrl + "/" + "UsersData" + "/" + filePath + "/";
             var URL = DocsPath + thisFileName;
+            //URL = URL.Replace("/" + thisFileName, "");
 
-            using (Stream file = File.OpenWrite(filename))
+            try
             {
-                input.CopyTo(file);
-                file.Close();
+                using (Stream file = File.OpenWrite(filename))
+                {
+                    input.CopyTo(file);
+                    file.Close();
+                }
             }
+            catch (Exception e)
+            {
+                throw;
+            }
+            
 
             var response = Request.CreateResponse(HttpStatusCode.OK);
             response.Headers.Add("DocsUrl", URL);
@@ -90,7 +106,7 @@ namespace API.Controllers
         public IHttpActionResult ShareFiles([FromBody] string data)
         {
             var paths = data.Split('~');
-            paths[1] = @"C:\Users\Mykolas\Documents\Repos\Drobox\API\UsersData\" + paths[1];
+            paths[1] = RootPath + paths[1];
             var fileName = paths[0].Split('\\').Last();
             File.Copy(Path.Combine(paths[0]), Path.Combine(paths[1] + "\\" + fileName), true);
             return Ok();
@@ -105,7 +121,7 @@ namespace API.Controllers
             try
             {
                 
-                paths[1] = @"C:\Users\Mykolas\Documents\Repos\Drobox\API\UsersData\" + paths[1];
+                paths[1] = RootPath + paths[1];
                 
                 Directory.CreateDirectory(paths[1] + folderName);
                 var filesInDir = Directory.GetFiles(paths[0], "*.*", SearchOption.AllDirectories);
@@ -138,10 +154,7 @@ namespace API.Controllers
         [Route("api/get-file")]
         public HttpResponseMessage GetFiles([FromBody] string userPath)
         {
-            string path = @"C:\Users\Mykolas\Documents\Repos\Drobox\API\UsersData\" + userPath;
-            //path = @"C:\Users\Mykolas\Documents\Repos\Drobox\API\UsersData\100570058492936480965\MrM\xxx.pdf";
-
-
+            string path = RootPath + userPath;
             HttpResponseMessage result = new HttpResponseMessage(HttpStatusCode.OK);
             var stream = new FileStream(path, FileMode.Open, FileAccess.Read);
             result.Content = new StreamContent(stream);
@@ -153,7 +166,7 @@ namespace API.Controllers
         [Route("api/create-folder")]
         public IHttpActionResult CreateFolder([FromBody] string userPath)
         {
-            string path = @"C:\Users\Mykolas\Documents\Repos\Drobox\API\UsersData\" + userPath;
+            string path = RootPath + userPath;
 
             if (!Directory.Exists(path))
             {
@@ -161,6 +174,50 @@ namespace API.Controllers
             }
 
             return Ok();
+        }
+
+        [HttpPost]
+        [Route("api/get-image-info")]
+        [ResponseType(typeof(ImageInfo))]
+        public IHttpActionResult GetUser([FromBody] string path)
+        {
+            ImageInfo info = db.ImageInfos.Find(path);
+            if (info == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(info);
+        }
+
+        [HttpPost]
+        [Route("api/add-image-info")]
+        public IHttpActionResult AddImageInfo(ImageInfo info)
+        {
+            db.ImageInfos.Add(info);
+
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (DbUpdateException)
+            {
+                if (ImageExists(info.Path))
+                {
+                    return Conflict();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return Ok();
+        }
+
+        private bool ImageExists(string path)
+        {
+            return db.ImageInfos.Count(e => e.Path == path) > 0;
         }
     }
 }

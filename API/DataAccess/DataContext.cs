@@ -14,6 +14,9 @@ namespace API.DataAccess
             Database.SetInitializer(new DbInit());
             Database.Initialize(true);
         }
+
         public DbSet<User> Users { get; set; }
+
+        public DbSet<ImageInfo> ImageInfos { get; set; }
     }
 }

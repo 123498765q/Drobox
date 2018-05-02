@@ -34,6 +34,8 @@ namespace UWP
     /// </summary>
     public sealed partial class PhotosScreen : Page
     {
+        private string PhotoPath = "";
+
         public PhotosScreen()
         {
             this.InitializeComponent();
@@ -56,6 +58,7 @@ namespace UWP
             makePhoto();
         }
 
+        
         public async void makePhoto()
         {
             CameraCaptureUI dialog = new CameraCaptureUI();
@@ -73,6 +76,7 @@ namespace UWP
 
                 }
 
+                PhotoPath = file.Path;
                 CapturePhoto.Source = bitmapImage;
                 komentaras.Visibility = Visibility.Visible;
                 Save.Visibility = Visibility.Visible;
@@ -80,20 +84,19 @@ namespace UWP
                 locationCB.Visibility = Visibility.Visible;
 
             }
-            else
-            {
-                //var dialog1 = new MessageDialog("Are you sure you want to quit?");
-                //UICommand okBtn = new UICommand("Yes");
-                //dialog1.Commands.Add(okBtn);
-                //dialog1.ShowAsync();
-                /*Dialogs exitCamera = new Dialogs();
-                exitCamera.ExitCamera();*/
-            }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void SavePhotoBtn(object sender, RoutedEventArgs e)
         {
+            var imageName = PhotoPath.Split('\\').Last(); // "C:\\Users\\Mykolas\\AppData\\Local\\Packages\\fc57b5b6-58fe-4d9c-b7f6-cdcead7ef616_866atarb4ygr6\\TempState\\CCapture (19).jpg"
+            var path = FileUtil.BaseApiPath + App.sub + "\\" + App.given_name + "\\" + imageName;
 
+            string[] selectedPaths = new string[1];
+            selectedPaths[0] = PhotoPath;
+            FileUtil.AddFile(selectedPaths, App.given_name + "\\" + imageName);
+
+            ImageInfo info = new ImageInfo(path, App.sub, lokacija.Text, komentaras.Text);
+            FileUtil.PostImageInfo(info);
         }
 
         private void locationCB_Checked(object sender, RoutedEventArgs e)
